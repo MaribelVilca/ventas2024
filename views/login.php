@@ -90,7 +90,7 @@
       <div class="form-group forgot-password">
         <a href="#">¿Olvidó la contraseña?</a>
       </div>
-      <a href="index.html" class="btn btn-primary btn-block">Iniciar sesión</a>
+      <a href="<?php echo BASE_URL?>producto" class="btn btn-primary btn-block">Iniciar sesión</a>
     
     </form>
   </div>

@@ -56,7 +56,7 @@
       <div class="col">
         <img src="./views/plantilla/imagenes/cuidado4.webp" class="img-fluid rounded" alt="Imagen 4">
         <div class="text-center mt-3">
-            <h5 class="card-title">Crema AAclarante Para L a piel Hecho de Hojas Aromatizantes</h5>
+            <h5 class="card-title">Crema Aclarante Para L a piel Hecho de Hojas Aromatizantes</h5>
             <div class="overflow-y-hidden" style="height: 80px;"> 
                 <span class="text-muted text-decoration-line-through">S/60.00</span>
                  <span class="h5 text-danger">S/40.00</span>          

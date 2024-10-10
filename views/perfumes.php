@@ -18,7 +18,7 @@
               <span class="h5 text-danger">S/100.00</span>
             </div><br>
             <div class="text-center">
-                    <a href="descripcion.html" class="btn btn-primary">AGREGAR A LA BOLSA</a>
+                    <a href="<?php echo BASE_URL?>descripcion" class="btn btn-primary">AGREGAR A LA BOLSA</a>
             </div>
 
           </div>
@@ -32,7 +32,7 @@
               <span class="h5 text-danger">s/60.00</span>
             </div><br>
             <div class="text-center">
-              <a href="descripcion2.html" class="btn btn-primary">AGREGAR A LA BOLSA</a>
+              <a href="<?php echo BASE_URL?>descripcion2" class="btn btn-primary">AGREGAR A LA BOLSA</a>
             </div>
 
           </div>
