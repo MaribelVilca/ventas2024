@@ -82,7 +82,7 @@
             </div>
             <div class="text-center d-grid gap-2 col-6 mx-auto">
                 <a href="" class="btn btn-success">Pagar</a>
-                <a href="index.html" class="btn btn-primary">Seguir Comprando</a>
+                <a href="<?php echo BASE_URL?>producto" class="btn btn-primary">Seguir Comprando</a>
             </div>
         </div>
         </div>
@@ -97,8 +97,8 @@
                 <div class="col-md-6">
                   <h5>Siguenos en:</h5>
                   <ul class="list-unstyled">
-                    <li><a href="#" class="text-white">Facebook</a></li>
-                    <li><a href="#" class="text-white">Twitter</a></li>
+                    <li><a href="https://web.facebook.com/" class="text-white">Facebook</a></li>
+                    <li><a href="https://web.whatsapp.com/" class="text-white">Twitter</a></li>
                     <li><a href="#" class="text-white">Instagram</a></li>
                   </ul>
                 </div>

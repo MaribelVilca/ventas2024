@@ -42,13 +42,13 @@
     <div class="row">
         <div class="col-md-6">
             <div class="product-images">
-                <img src="./views/plantilla/imagenes/perfume2.png" class="product-img" alt="Producto principal">
-               
+                <img src="imagenes/labial2.webp" class="product-img" alt="Producto principal">
+                
             </div>
         </div>
         <div class="col-md-6">
             <div class="product-details">
-                <h1 class="product-title">Perfume NOCTURNE Antiedad de 45ML</h1>
+                <h1 class="product-title">Mega Full Zise Mascara de pestañas Facil Retirado</h1>
                 <div class="product-rating">
                     <span>&#9733;</span>
                     <span>&#9733;</span>
@@ -56,17 +56,17 @@
                     <span>&#9733;</span>
                     <span>&#9734;</span> (15)
                 </div>
-                <p class="mt-2">¿Qué es?
+                <p class="mt-2">¿Por qué elegirlo?
 
-                    Perfume de mujer dulce de concentración muy alta, con Base de Laire, legado de alta perfumería francesa, para las mujeres poderosamente atrevidas</p>
-                <p class="product-old-price">S/ 80.00</p>
-                <p class="product-price">S/ 60.00 <span class="text-success">(Ahorra S/ 15.80)</span></p>
+                    La máscara de pestañas #1 de ésika con efecto LARGO INSUPERABLE, a prueba de agua</p>
+                <p class="product-old-price">S/ 50.00</p>
+                <p class="product-price">S/ 40.00 <span class="text-success">(Ahorra S/ 10.00)</span></p>
                 <div class="form-group">
                     <label for="quantity">Cantidad</label>
                     <input type="number" id="quantity" class="form-control w-25" value="1">
                 </div>
-                <a href="<?php echo BASE_URL?>carrito1" class="btn btn-primary">AGREGAR A LA BOLSA</a>
-               
+                <a href="carrito1.html" class="btn btn-primary">AGREGAR A LA BOLSA</a>
+                
             </div>
         </div>
     </div>
