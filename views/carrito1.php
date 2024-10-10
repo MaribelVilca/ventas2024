@@ -98,7 +98,7 @@
                   <h5>Siguenos en:</h5>
                   <ul class="list-unstyled">
                     <li><a href="https://web.facebook.com/" class="text-white">Facebook</a></li>
-                    <li><a href="https://web.whatsapp.com/" class="text-white">Twitter</a></li>
+                    <li><a href="#" class="text-white">Twitter</a></li>
                     <li><a href="#" class="text-white">Instagram</a></li>
                   </ul>
                 </div>
