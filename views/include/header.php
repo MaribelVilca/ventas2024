@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-</head>
+
+<script>
+const base_url ='<?php echo BASE_URL;?>'
+      </script>
+     </head>
 <body>
   <nav class="navbar bg-body-tertiary">
     <div class="container-fluid row" style="background-color: #dbdde0;" data-bs-theme="dark">
@@ -50,4 +54,5 @@
         <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL?>ofertas">Ofertas</a>
     </li>
       </ul>
+  
      
