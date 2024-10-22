@@ -34,18 +34,22 @@ FORMULARIO DE REGISTRO DE PRODUCTO
 </div>
 <div class?="form group">
         <label for="Fecha de Vencimiento">Fecha de Vencimiento</label>
-        <input type ="date" id="Fecha de Vencimiento"name="Fecha de Vencimiento"require><br><br>
+        <input type ="date" require
+        class="form-control"id="fecha de vencimiento"name="fecha de vencimiento"><br><br>
 </div>
 <div class?="form group">
         <label for="Imagen">Imagen</label>
-        <input type ="tex" id="Imagen"name="Imagen"require><br><br>
+        <input type ="tex" require
+       class="form control"id="Imagen"name="Imagen"><br><br>
 </div>
 <div class?="form group">
         <label for="Proveedor">Proveedor</label>
-        <input type ="tex" id="Proveedor"name="Proveeedor"require><br><br>
-</div>
+        <input type ="tex" require 
+        class="form control" id="Proveedor"name="Proveeedor"require><br><br>
+
+</div class?="">
 <form action class="form-control">
-        <button type="button"class" btn-success">Registrar</button>
+        <button type="button" onclick="registrar_producto()" class="btn-success">Registrar</button>
 </form>
 <script src="<?php echo BASE_URL;?>views/js/functions_product.js"></script>
 

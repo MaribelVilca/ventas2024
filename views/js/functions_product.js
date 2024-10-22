@@ -7,7 +7,7 @@ async function registrar_producto(params){
     let FechaVencimiento = document.querySelector('#Fecha-V').value;
     let Imagen = document.querySelector('#Imagen').value;
     let Proveedor = document.querySelector('#Proveedor').value;
-    if(Codigo==""|| Nombre ==""||Detalle==""|| Precio==""|| Categoria==""|| Fecha==""|| Imagen==""|| Producto==""||){
+    if(codigo==""|| nombre ==""||detalle==""|| precio==""|| Categoria==""|| FechaVencimiento==""|| Imagen==""|| Proveedor==""){
         alert("error,campos vacios");
         return;
 
