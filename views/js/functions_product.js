@@ -1,13 +1,13 @@
-async function registrar_producto(params){
-    let codigo = document.getElementById('#Codigo').value;
-    let nombre= document.querySelector('#Nombre').value;
-    let detalle= document.querySelector('#Detalle').value;
-    let precio= document.querySelector('#Precio').value;
-    let Categoria = document.querySelector('#Categoria').value;
-    let FechaVencimiento = document.querySelector('#Fecha-V').value;
-    let Imagen = document.querySelector('#Imagen').value;
-    let Proveedor = document.querySelector('#Proveedor').value;
-    if(codigo==""|| nombre ==""||detalle==""|| precio==""|| Categoria==""|| FechaVencimiento==""|| Imagen==""|| Proveedor==""){
+async function registrar_producto(){
+    let codigo = document.getElementById('codigo').value;
+    let nombre= document.querySelector('#nombre').value;
+    let detalle= document.querySelector('#detalle').value;
+    let precio= document.querySelector('#precio').value;
+    let categoria = document.querySelector('#categoria').value;
+    let fechaVencimiento = document.querySelector('#fecha_vencimiento').value;
+    let imagen = document.querySelector('#imagen').value;
+    let proveedor = document.querySelector('#proveedor').value;
+    if(codigo==""|| nombre ==""||detalle==""|| precio==""|| categoria==""|| fechaVencimiento==""|| imagen==""|| proveedor==""){
         alert("error,campos vacios");
         return;
 
@@ -16,18 +16,34 @@ async function registrar_producto(params){
     //capturamos datos del formulario html//
     const datos = new FormData(frmRegistrar);
     //enviar datos hacia el controlador//
-    let respuesta = await fetch(base-url+'controller/producto.php?tipo=registrar',{
+    let respuesta = await fetch(base_url + 'controller/producto.php?tipo=registrar', {
         method: 'POST',
         moder: 'cors',
         cache: 'no-cache',
         body: datos
     });
-    console.log(respuesta);
+    json = await respuesta.json();
+    if(json.status){
+    swal("Registro", json.mensaje,"success");
+    }else{
+        swal("Registro", json.mensaje,"error");   
+    }
+
+    console.log(json);
    } catch (e){
-    console.log("Oops, ocurrio un error"+e);
+    console.log("Oops, ocurrio un error:" + e);
 
     
    }
-    
+async function listar_categorias() {
+    try{
+        let respuesta = await fetch(base_url +'controller/Categoria.php?tipo=listar');
+        console.log(respuesta);
+
+    }catch (e) {
+        console.log("Error al cargar categorias"+e);
+    }
+}
+  
 }
  
