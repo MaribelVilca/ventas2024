@@ -29,8 +29,10 @@ FORMULARIO DE REGISTRO DE PRODUCTO
         </div>
         <div class?="form group">
                 <label for="categoria">Categoria: </label>
-                <input type="text" required
-                        class="form-control" id="categoria" name="categoria"><br><br>
+                <select name="categoria" id="categoria"class="form control"required>
+                <option>Seleccione</option>
+                </select>
+               
         </div>
         <div class?="form group">
                 <label for="fecha de Vencimiento">Fecha de Vencimiento</label>
@@ -51,4 +53,5 @@ FORMULARIO DE REGISTRO DE PRODUCTO
         <button type="button" class="btn-success" onclick="registrar_producto()">Registrar</button>
 </form>
 <script src="<?php echo BASE_URL; ?>views/js/functions_product.js"></script>
-<script>Listar_Categorias();</script>
+
+<script >listar_categorias();</script>
