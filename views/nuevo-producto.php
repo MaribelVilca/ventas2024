@@ -41,13 +41,13 @@ FORMULARIO DE REGISTRO DE PRODUCTO
         </div>
         <div class?="form group">
                 <label for="imagen">imagen: </label>
-                <input type="text" required
+                <input type="file" required
                         class="form-control" id="imagen" name="imagen"><br><br>
         </div>
         <div class?="form group">
                 <label for="proveedor">proveedor: </label>
-                <input type="text" required
-                        class="form-control" id="proveedor" name="proveedor"><br><br>
+                <select name="proveedor" id="proveedor"class="form control"required>
+                <option>Seleccione</option> </select>
         </div>
 
         <button type="button" class="btn-success" onclick="registrar_producto()">Registrar</button>
@@ -55,3 +55,4 @@ FORMULARIO DE REGISTRO DE PRODUCTO
 <script src="<?php echo BASE_URL; ?>views/js/functions_product.js"></script>
 
 <script >listar_categorias();</script>
+<script >listar_proveedor();</script>

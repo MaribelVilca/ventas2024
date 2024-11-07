@@ -22,10 +22,6 @@ if ($tipo == "listar"){
         $arr_Respuesta['contenido'] = $arr_Categorias;
         
     }
-    echo json_encode($arr_Respuesta);
-    
+    echo json_encode($arr_Respuesta);  
 }
-
-
-
 ?>
