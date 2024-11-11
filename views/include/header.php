@@ -32,28 +32,28 @@ const base_url ='<?php echo BASE_URL;?>'
       </nav>
      
       <ul class="nav justify-content-center">
-        <li class="nav-item">
-            <a class="nav-link active"aria-current="page" href="<?php echo BASE_URL?> maquillajes">Maquillajes</a>
+        <li class="col-2">
+            <a class="nav-link active" aria-current="page" href="maquillajes.html"style="color: #0D0D0D;">Maquillajes</a>
         </li>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL?>perfumes">Perfumes</a>
+      <li class="col-2">
+        <a class="nav-link active" aria-current="page" href="perfumes.html"style="color: #0D0D0D;">Perfumes</a>
       </li>
     </li>
-    <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL?>tratamiento">Tratamiento Facial</a>
+    <li class="col-2">
+        <a class="nav-link active" aria-current="page" href="tratamiento.html"style="color: #0D0D0D;">Tratamiento Facial</a>
     </li>
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL?>joyeria">Joyerias</a>
+        <li class="col-2">
+            <a class="nav-link active" aria-current="page" href="joyeria.html"style="color: #0D0D0D;">Joyerias</a>
         </li>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL?>cuidadoPersonal">Cuidado Personal</a>
+      <li class="col-2">
+        <a class="nav-link active" aria-current="page" href="cuidadoPersonal.html"style="color: #0D0D0D;">Cuidado Personal</a>
       </li>
     </li>
-    <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL?>ofertas">Ofertas</a>
+    <li class="col-2">
+        <a class="nav-link active" aria-current="page" href="ofertas.html"style="color: #0D0D0D;">Ofertas</a>
     </li>
       </ul>
-  
+
      
