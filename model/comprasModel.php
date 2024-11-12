@@ -6,15 +6,13 @@ class ComprasModel {
         $this->conexion = new Conexion();
         $this->conexion = $this->conexion->connect();
     }
-
     public function registrarCompra($id_proveedor, $cantidad, $precio, $id_trabajador) {
         $sql = $this->conexion->query("CALL insertCompra('{$id_proveedor}', '{$cantidad}', '{$precio}','{$id_trabajador}')");
-
         if ($sql) {
             return (object) [
                 'status' => true,
                 'mensaje' => 'Compra registrada exitosamente.'
-            ];
+        ];
         } else {
             return (object) [
                 'status' => false,
