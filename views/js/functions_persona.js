@@ -21,7 +21,7 @@ async function registrar_persona(){
     }
     try{
    
-        const datos = new FormData(frmRegistrar);
+        const datos = new FormData(frmRegistrarPersona);
         //enviar datos hacia el controlador//
         let respuesta = await fetch(base_url + 'controller/persona.php?tipo=registrar', {
             method: 'POST',
@@ -42,24 +42,5 @@ async function registrar_persona(){
     
         
        }
-    }
-    async function listar_persona() {
-        try{
-            let respuesta = await fetch(base_url +'controller/persona.php?tipo=listar');
-            console.log(respuesta);
-           json = await respuesta.json();
-           if(json.status){
-            let datos = json.contenido;
-            let contenido_select = '<option value="">Seleccione</option>';
-            datos.forEach(element => {
-                contenido_select += '<option value="' + element.id +'">' + element.nombre + '</option>';
-               
-            });
-            document.getElementById('persona').innerHTML = contenido_select;
-        }
-         console.log(respuesta);
-        }catch (e) {
-            console.log("Error al cargar persona" + e);
-        }
     }
    

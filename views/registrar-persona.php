@@ -50,11 +50,13 @@
         </div>
         <div class?="form group">
                 <label for="rol">rol: </label>
-                <input type="text" required
-                        class="form-control" id="rol" name="rol"><br><br>
+                <select name="rol" id="rol"class="form control"required>
+                <option>Seleccione</option>
+                <option value="Cliente">Cliente</option>
+         </select>
         </div>
         <div class?="form group">
-                <label for="password">password: </label>
+                <label for="password">contraseña: </label>
                 <input type="text" required
                         class="form-control" id="password" name="password"><br><br>
         </div>
@@ -69,5 +71,8 @@
                         class="form-control" id="fecha_reg" name="fecha_reg"><br><br>
         </div>
 
-        <button type="button" class="btn-success" onclick="registrar_persona()">Registrar</button>
+        <button type="button" class="btn btn-success" onclick="registrarPersona();">Registrar</button>
 </form>
+
+
+<script src="<?php echo BASE_URL;?>views/js/functions_persona.js"></script>

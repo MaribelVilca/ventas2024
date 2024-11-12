@@ -2,27 +2,28 @@
         <div class?="form group">
 </div>
         <div class?="form group">
-                <label for="nombre">Nombre: </label>
+                <label for="id_producto">Id producto: </label>
                 <input type="text" required
-                        class="form-control" id="nombre" name="Nombre"><br><br>
+                        class="form-control" id="id_producto" name="id_producto"><br><br>
         </div>
         <div class?="form group">
-                <label for="detalle">Detalle: </label>
-                <input type="text" required
-                        class="form-control" id="detalle" name="detalle"><br><br>
+                <label for="cantidad">cantidad: </label>
+                <input type="number" required
+                        class="form-control" id="cantidad" name="cantidad"><br><br>
 
         </div>
         <div class?="form group">
-                <label for="detalle">Detalle: </label>
-                <input type="text" required
-                        class="form-control" id="detalle" name="detalle"><br><br>
+                <label for="precio">precio: </label>
+                <input type="number" required
+                        class="form-control" id="precio" name="precio"><br><br>
                         
         </div>
         <div class?="form group">
-                <label for="detalle">Detalle: </label>
+                <label for="id_trabajador"> id_trabajador: </label>
                 <input type="text" required
-                        class="form-control" id="detalle" name="detalle"><br><br>
+                        class="form-control" id="id_trabajador" name="id_trabajador"><br><br>
                         
         </div>
-        <button type="button" class="btn-success" onclick="registrar_categoria()">Registrar</button>
+        <button type="button" class="btn-success" onclick="registrarCompras();">Registrar</button>
 </form>
+<script src="<?php echo BASE_URL;?>views/js/functions_compras.js"></script>
