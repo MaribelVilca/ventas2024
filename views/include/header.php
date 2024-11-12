@@ -33,7 +33,7 @@ const base_url ='<?php echo BASE_URL;?>' </script>
      
       <ul class="nav justify-content-center">
         <li class="col-2">
-            <a class="nav-link active" aria-current="page" href="maquillajes.html"style="color: #0D0D0D;">Maquillajes</a>
+            <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL?>maquillajes"style="color: #0D0D0D;">Maquillajes</a>
         </li>
       </li>
       <li class="col-2">
