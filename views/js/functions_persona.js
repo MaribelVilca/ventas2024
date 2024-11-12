@@ -22,7 +22,7 @@ async function registrar_persona(){
     try{
    
         const datos = new FormData(frmRegistrarPersona);
-        //enviar datos hacia el controlador//
+       
         let respuesta = await fetch(base_url + 'controller/persona.php?tipo=registrar', {
             method: 'POST',
             moder: 'cors',
