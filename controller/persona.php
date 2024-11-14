@@ -18,12 +18,11 @@ if ($tipo == "registrar") {
     $cod_postal = ['cod_postal'];
     $direccion = $_POST['direccion'];
     $rol = $_POST['rol'];
-    $password = $_POST['password'];
     $estado = $_POST['estado'];
     $fecha_reg = $_POST['fecha_reg'];
 
     $secure_password =password_hash($dni,PASSWORD_DEFAULT);
-    
+
     if ($nro_identidad == "" || $razon_social == "" || $telefo == "" || $correo == "" || $departamento == "" || $provincia == "" || $distrito == "" || $cod_postal == "" || $direccion == ""|| $rol == ""
     || $password== ""|| $estado == ""|| $fecha_reg == "") {
         $arr_Respuesta = array('status' => true, 'mensaje' => 'Error campos vacios');

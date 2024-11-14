@@ -55,11 +55,7 @@
                 <option value="Cliente">Cliente</option>
          </select>
         </div>
-        <div class?="form group">
-                <label for="password">contraseña: </label>
-                <input type="text" required
-                        class="form-control" id="password" name="password"><br><br>
-        </div>
+        
         <div class?="form group">
                 <label for="estado">estado: </label>
                 <input type="text" required

@@ -71,6 +71,7 @@
       text-decoration: underline;
     }
   </style>
+  <script>const base_url = '<?php echo BASE_URL; ?>'</script>
 </head>
 <body>
   <div class="login-container">
@@ -78,24 +79,24 @@
     <div class="user-image">
       <img src="./views/plantilla/imagenes/icono3.png" alt="User Image">
     </div>
-    <form>
+    <form id="frm_iniciar_sesion">
       <div class="form-group">
-        <label for="username">Email:</label>
-        <input type="text" class="form-control" id="username" placeholder="Ingrese tu Email">
+        <label for="username">usuario:</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Ingrese tu Email" required>
       </div>
       <div class="form-group">
         <label for="password">Contraseña:</label>
-        <input type="password" class="form-control" id="password" placeholder="Ingrese tu contraseña">
+        <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese tu contraseña" required>
       </div>
       <div class="form-group forgot-password">
         <a href="#">¿Olvidó la contraseña?</a>
       </div>
-      <a href="<?php echo BASE_URL?>producto" class="btn btn-primary btn-block">Iniciar sesión</a>
+      <button class="btn btn-primary btn-block" type="submit">Iniciar sesión</button>
     
     </form>
   </div>
  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  
+  <script src="<?php echo BASE_URL;?>views/js/functions_login.js"></script>
 </body>
 </html

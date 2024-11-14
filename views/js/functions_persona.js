@@ -9,7 +9,6 @@ async function Registrar(){
     let cod_postal = document.getElementById('cod_postal').value;
     let direccion = document.getElementById('direccion').value;
     let rol = document.getElementById('rol').value;
-    let password = document.getElementById('password').value;
     let estado = document.getElementById('estado').value;
     let fecha_reg = document.getElementById('fecha_reg').value;
   
