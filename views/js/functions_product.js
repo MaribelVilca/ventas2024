@@ -18,7 +18,7 @@ async function registrar_producto(){
     //enviar datos hacia el controlador//
     let respuesta = await fetch(base_url + 'controller/producto.php?tipo=registrar', {
         method: 'POST',
-        moder: 'cors',
+        mode: 'cors',
         cache: 'no-cache',
         body: datos
     });
