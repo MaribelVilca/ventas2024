@@ -71,7 +71,7 @@
                         class="form-control" id="fecha_reg" name="fecha_reg"><br><br>
         </div>
 
-        <button type="button" class="btn btn-success" onclick="registrarPersona();">Registrar</button>
+        <button type="button" class="btn btn-success" onclick="registrarPersona()">Registrar</button>
 </form>
 
 

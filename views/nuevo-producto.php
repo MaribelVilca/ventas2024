@@ -31,6 +31,7 @@ FORMULARIO DE REGISTRO DE PRODUCTO
                 <label for="categoria">Categoria: </label>
                 <select name="categoria" id="categoria"class="form control"required>
                 <option>Seleccione</option>
+
                 </select>
                
         </div>
@@ -47,7 +48,9 @@ FORMULARIO DE REGISTRO DE PRODUCTO
         <div class?="form group">
                 <label for="proveedor">proveedor: </label>
                 <select name="proveedor" id="proveedor"class="form control"required>
-                <option>Seleccione</option> </select>
+                <option>Seleccione</option> 
+                
+        </select>
         </div>
 
         <button type="button" class="btn-success" onclick="registrar_producto()">Registrar</button>
