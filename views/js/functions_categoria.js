@@ -1,4 +1,4 @@
-async function registrar_categoria(){
+async function Registrar(){
     let nombre= document.getElementById('#nombre').value;
     let detalle= document.querySelector('#detalle').value;
     if(nombre==""|| detalle ==""){
@@ -10,9 +10,9 @@ async function registrar_categoria(){
        
         const datos = new FormData(frmRegistrar);
      
-        let respuesta = await fetch(base_url + 'controller/categoria.php?tipo=registrar', {
+        let respuesta = await fetch(base_url + 'controller/categoria.php?tipo=Registrar', {
             method: 'POST',
-            moder: 'cors',
+            mode: 'cors',
             cache: 'no-cache',
             body: datos
         });

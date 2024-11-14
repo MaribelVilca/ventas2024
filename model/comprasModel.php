@@ -7,7 +7,7 @@ class ComprasModel {
         $this->conexion = $this->conexion->connect();
     }
 
-    public function registrarCompra($id_proveedor, $cantidad, $precio, $id_trabajador) {
+    public function Registrar($id_proveedor, $cantidad, $precio, $id_trabajador) {
         $sql = $this->conexion->query("CALL insertCompra('{$id_proveedor}', '{$cantidad}', '{$precio}','{$id_trabajador}')");
 
         if ($sql) {

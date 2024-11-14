@@ -1,21 +1,21 @@
-async function registrarCompras() {
+async function Registrar() {
    
-    let id_proveedor = document.querySelector('#id_proveedor').value;
+    let id_proveedor = document.querySelector('#id_producto').value;
     let cantidad = document.querySelector('#cantidad').value;
     let precio = document.querySelector('#precio').value;
     let id_trabajador = document.querySelector('#id_trabajador').value;
     
-    if (id_proveedor == "" || cantidad == "" ||precio =="" || id_trabajador =="") {
+    if (id_producto== "" || cantidad == "" ||precio =="" || id_trabajador=="") {
         alert("Error!!, Campos vacíos");
         return;
     }
     try{
         
-        const datos = new FormData(frmRegistrarCompras);
+        const datos = new FormData(frmRegistrar);
       
-        let respuesta = await fetch(base_url + 'controller/compras.php?tipo=registrar', {
+        let respuesta = await fetch(base_url + 'controller/compras.php?tipo=Registrar', {
             method: 'POST',
-            moder: 'cors',
+            mode: 'cors',
             cache: 'no-cache',
             body: datos
         });
