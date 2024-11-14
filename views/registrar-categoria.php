@@ -4,13 +4,13 @@
         <div class?="form group">
                 <label for="nombre">Nombre: </label>
                 <input type="text" required
-                        class="form-control" id="nombre" name="Nombre"><br><br>
+                        class="form-control" id="nombre" name="nombre"><br><br>
         </div>
         <div class?="form group">
                 <label for="detalle">Detalle: </label>
                 <input type="text" required
                         class="form-control" id="detalle" name="detalle"><br><br>
         </div>
-        <button type="button" class="btn-success" onclick="registrarCategoria()">Registrar</button>
+        <button type="button" class="btn-success" onclick="Registrar()">Registrar</button>
 </form>
 <script src="<?php echo BASE_URL; ?>views/js/functions_categoria.js"></script>

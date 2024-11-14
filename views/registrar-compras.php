@@ -24,6 +24,6 @@
                         class="form-control" id="id_trabajador" name="id_trabajador"><br><br>
                         
         </div>
-        <button type="button" class="btn-success" onclick="registrarCompras();">Registrar</button>
+        <button type="button" class="btn-success" onclick="Registrar();">Registrar</button>
 </form>
 <script src="<?php echo BASE_URL;?>views/js/functions_compras.js"></script>
