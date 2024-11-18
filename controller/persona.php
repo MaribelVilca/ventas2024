@@ -4,7 +4,7 @@ require_once('../model/personaModel.php');
 $tipo = $_REQUEST['tipo'];
 
 $objpersona = new personaModel();
-if ($tipo == "registrar") {
+if ($tipo == "Registrar") {
    
     
     if ($_POST)

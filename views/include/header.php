@@ -11,7 +11,11 @@ const base_url ='<?php echo BASE_URL;?>' </script>
 <script src="<?php echo BASE_URL; ?>/views/js/functions_persona.js"></script>
 <script src="<?php echo BASE_URL; ?>/views/js/functions_compras.js"></script>
 <script src="<?php echo BASE_URL; ?>/views/js/functions_product.js"></script>
-     </head>
+</head>
+ Categoria
+ <li class="nav1"><a onclick="cerrar_sesion();">cerrar sesion</a></li>
+                               
+       </a>
 <body>
   <nav class="navbar bg-body-tertiary">
     <div class="container-fluid row" style="background-color: #dbdde0;" data-bs-theme="dark">
@@ -55,9 +59,9 @@ const base_url ='<?php echo BASE_URL;?>' </script>
     <li class="col-2">
         <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL?>ofertas"style="color: #0D0D0D;">Ofertas</a>
     </li>
-    <li> class="nav1"><a href="">Carrito</a></li>;
+    <li class="nav1"><a href="">Carrito</a></li>;
     
 
       </ul>
-
+    
      
