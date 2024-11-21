@@ -15,7 +15,7 @@ if ($tipo == "Registrar") {
             exit;
         }
 
-        $resultado = $objCompras->registrarCompraS($id_proveedor, $cantidad, $precio,$id_trabajador);
+        $resultado = $objCompras->registrarCompra($id_proveedor, $cantidad, $precio,$id_trabajador);
 
         echo json_encode($resultado);
     } else {
