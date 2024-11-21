@@ -1,9 +1,36 @@
 <?php
 require_once('../model/productoModel.php');
-
-$tipo = $_REQUEST['tipo'];
+require_once('../model/categoriaModel.php');
+require_once('../model/personaModel.php');
 //instancia la clase modelo//
+$tipo = $_REQUEST['tipo'];
 $objProducto = new ProductoModel();
+$objcategoria = new CategoriaModel();
+$objPersona = new PersonaModel();
+
+if ($tipo =="listar"){
+    $arr_Respuesta =array('status'=>false, 'contenido'=>'');
+    $arr_productos = $objProducto->obtener_productos();
+    if (!empty($arr_productos)){
+       //recordemos el array para agregar las opciones de//
+        for($i=0;$i < count($arr_productos); $i++){
+            $id_categoria = $arr_productos[$i]->id_categoria;
+            $r_categoria = $objcategoria->obtener_categoria_id($id_categoria);
+            $arr_productos[$i]->categoria=$r_categoria; 
+            
+            $id_producto =$arr_productos[$i]->id;
+            $id_producto = $arr_productos[$i]->nombre;
+            $opciones = '';
+            $arr_productos[$i]->options = $opciones;
+        }
+        $arr_Respuesta['status'] = true;
+        $arr_Respuesta['contenido'] = $arr_productos;
+        
+    }
+    echo json_encode($arr_Respuesta);  
+}
+
+
 if ($tipo == "registrar") {
    // print_r($_POST);
     //echo $_FILES['imagen']['name'];

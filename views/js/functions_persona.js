@@ -1,3 +1,6 @@
+
+
+
 async function Registrar(){
     let nro_identidad = document.getElementById('nro_identidad').value;
     let razon_social= document.getElementById('razon_social').value;
