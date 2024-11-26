@@ -9,12 +9,10 @@
             <th>departamento</th>
             <th>provincia</th>
             <th>distrito</th>
-            <th>cod_postal</th>
             <th>direccion</th>
             <th>rol</th>
-            <th>password</th>
-            <th>estado</th>
             <th>fecha_reg</th>
+            <th>Acciones</th>
 
           </tr>  
 

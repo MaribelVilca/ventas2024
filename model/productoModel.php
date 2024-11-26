@@ -8,6 +8,8 @@ class ProductoModel
         $this->conexion = new Conexion();
         $this->conexion = $this->conexion->connect();
     }
+
+    
     public function obtener_productos(){
         $arrRespuesta = array();
         $respuesta = $this->conexion->query("SELECT * FROM producto");

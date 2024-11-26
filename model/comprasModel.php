@@ -9,18 +9,34 @@ class ComprasModel {
 
     public function registrarCompra($id_proveedor, $cantidad, $precio, $id_trabajador) {
         $sql = $this->conexion->query("CALL insertCompra('{$id_proveedor}', '{$cantidad}', '{$precio}','{$id_trabajador}')");
-        if ($sql) {
-            return (object) [
-                'status' => true,
-                'mensaje' => 'Compra registrada exitosamente.'
-        ];
-        } else {
-            return (object) [
-                'status' => false,
-                'mensaje' => 'Error al registrar la compra: ' . $this->conexion->error
-            ];
-        }
+       if ($sql == false){
+        print_r(value: $this->conexion->error);
+       }
+        $sql = $sql->fetch_object();
+        return $sql;
+                
+        };
     }
+    public function obtener_productos(){
+        {
+            $arrRespuesta = array();
+            $respuesta = $this->conexion->query(" SELECT * FROM producto");
+            while ($objeto = $respuesta->fetch_object()) {
+                array_push($arrRespuesta, $objeto);
+                
+            }
+            return $arrRespuesta;
+        }
+        public function obtener_compras()
+{
+    $arrRespuesta = array(); 
+    $respuesta = $this->conexion->query("SELECT id, id_producto, cantidad, precio, id_trabajador FROM compras");
+    while ($objeto = $respuesta->fetch_object()) {
+        array_push($arrRespuesta, $objeto);
 }
+return $arrRespuesta;
+
+}
+    }
 
 ?>

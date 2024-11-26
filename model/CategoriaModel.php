@@ -8,7 +8,7 @@ class CategoriaModel
         $this->conexion = new Conexion();
         $this->conexion = $this->conexion->connect();
     }
-    public function obtener_categoria()
+    public function obtener_categorias()
     {
         $arrRespuesta = array();
         $respuesta = $this->conexion->query("SELECT * FROM categoria");
@@ -17,10 +17,18 @@ class CategoriaModel
         }
         return $arrRespuesta;
     }
-    public function obtener_categoria_id($id){
-        $Respuesta = $this->conexion->query("SELECT * FROM categoria WHERE id = '{$id}'");
-        $objeto = $Respuesta->fetch_object();
-        return $objeto;
+    public function registrar_categoria(
+        $nombre,$detalle,
+    ){
+        $sql = $this->conexion->query("CALL insertcategoria('{$nombre}',{$detalle}')");
+        $sql = $sql->fetch_object();
+        return $sql;
     }
+    public function obtener_categoria($id){
+        $respuesta = $this->conexion->query("SELECT * FROM categoria WHERE id='{$id}'");
+        $respuesta = $respuesta->fetch_object();
+        return $respuesta;
+    }
+    
 }
 ?>

@@ -1,12 +1,36 @@
 <?php
 require_once('../model/personaModel.php');
 
+
+
 $tipo = $_REQUEST['tipo'];
 
+
 $objpersona = new personaModel();
+
+if ($tipo =="listar"){
+    $arr_Respuesta =array('status'=>false, 'contenido'=>'');
+    $arr_persona = $objPersona->obtener_personas();
+    if (!empty($arr_persona)){
+       
+        for($i=0;$i < count($arr_persona); $i++){
+            $id_persona = $arr_persona[$i]->id;
+            $razon_social = $arr_persona[$i]->razon_social;
+           
+           
+            $opciones = '<button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>';
+            $arr_persona[$i]->options = $opciones;
+        }
+        $arr_Respuesta['status'] = true;
+        $arr_Respuesta['contenido'] = $arr_persona;
+        
+    }
+    echo json_encode($arr_Respuesta);  
+}
+
 if ($tipo == "Registrar") {
    
-    
     if ($_POST)
     $nro_identidad = $_POST['nro_identidad'];
     $razon_social = $_POST['razon_social'];

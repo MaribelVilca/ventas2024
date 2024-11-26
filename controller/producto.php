@@ -19,8 +19,9 @@ if ($tipo =="listar"){
             $arr_productos[$i]->categoria=$r_categoria; 
             
             $id_producto =$arr_productos[$i]->id;
-            $id_producto = $arr_productos[$i]->nombre;
-            $opciones = '';
+            $nombre = $arr_productos[$i]->nombre;
+            $opciones = '<button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>';
             $arr_productos[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;

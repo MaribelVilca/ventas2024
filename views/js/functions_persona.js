@@ -1,4 +1,47 @@
-
+async function listar_persona() {
+    try{
+      let respuesta = await fetch(base_url+'controller/persona.php?tipo=listar');
+      json = await respuesta.json();
+      if (json.status){
+         let datos = json.contenido;
+         let cont  = 0;
+         datos.forEach(item =>{
+             let nueva_fila = document.createElement("tr");
+             //id de la fila y id de base de datos//
+             nueva_fila.id = "fila"+item.id;
+             cont += 1;
+             nueva_fila.innerHTML = `
+                   <tr>
+                    <th>${cont}</th>
+                    <td>${item.nro_identidad}</td>
+                    <td>${item.razon_social}</td>
+                    <td>${item.telefono}</td>
+                    <td>${item.correo}</td>
+                    <td>${item.departamento}</td>
+                    <td>${item.provincia}</td>
+                    <td>${item.distrito}</td>
+                    <td>${item.direccion}</td>
+                    <td>${item.rol}</td>
+                    <td>${item.fecha_reg}</td>
+                    <td>${item.options}</td>
+                   
+                  </tr> 
+             `;
+             document.querySelector('#tbl_persona').appendChild(nueva_fila);
+         });
+ 
+        
+      }
+      console.log(json);
+    }catch(error){
+        console.log("Oops salio un error al listar persona" + error);
+    } 
+ }
+ if (document.querySelector('#tbl_persona')){
+ listar_persona();
+ 
+ }
+ 
 
 
 async function Registrar(){
