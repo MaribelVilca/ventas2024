@@ -19,9 +19,8 @@ if ($tipo =="listar"){
             $arr_productos[$i]->categoria=$r_categoria; 
             
             $id_producto =$arr_productos[$i]->id;
-            $nombre = $arr_productos[$i]->nombre;
-            $opciones = '<button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>';
+            $id_producto = $arr_productos[$i]->nombre;
+            $opciones = '';
             $arr_productos[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
@@ -55,34 +54,36 @@ if ($tipo == "registrar") {
         $arr_Respuesta = array('status' => true, 'mensaje' => 'Error campos vacios');
 
     } else {
+
+//cargar archivos
+           $archivo = $_FILES['imagen']['tmp_name'];
+           $destino = '../assets/img_productos/';
+           $tipoArchivo = strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
+           
+
         $arrProducto = $objProducto->registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $fecha, $imagen, $proveedor);
         if ($arrProducto->id > 0) {
             $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro Exitoso');
-        //cargar archivos
-            $archivo = $_FILES['imagen']['tmp_name'];
-            $destino = './assets/img_productos/';
-            $tipoArchivo =strtolower(pathinfo($_FILES['imagen']['name'],PATHINFO_EXTENSION));
-
-            $nombre = $arrProducto->id.".".$tipoArchivo;
-
-        if (move_uploaded_file($archivo,$destino.$nombre)){
-          $arr_imagen = $objProducto->actualizar_imagen($arrProducto->id, $nombre);
-
-        }else {
-            $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro Exitoso,error al subir imagen');
-        }
-
+            $nombre = $arrProducto->id_n.".".$tipoArchivo;
+       
+            if (move_uploaded_file($archivo, $destino . '' . $nombre)) {
+            } else {
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro Exitoso, error al subir imagen');
+            }
+    
+        
         } else {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al registrar producto');
         }
         echo json_encode($arr_Respuesta);
     }
-}
-if ($tipo == "listar") {
-}
-if ($tipo == "ver") {
-}
-if ($tipo == "actualizar") {
+
+  if ($tipo == "listar") {
+  }
+  if ($tipo == "ver") {
+  }
+  if ($tipo == "actualizar") {
+  }
 }
 
 ?>

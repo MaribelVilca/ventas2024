@@ -9,7 +9,7 @@ async function listar_persona() {
              let nueva_fila = document.createElement("tr");
              //id de la fila y id de base de datos//
              nueva_fila.id = "fila"+item.id;
-             cont += 1;
+             cont +=1;
              nueva_fila.innerHTML = `
                    <tr>
                     <th>${cont}</th>

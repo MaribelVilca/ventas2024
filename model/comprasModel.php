@@ -15,9 +15,8 @@ class ComprasModel {
         $sql = $sql->fetch_object();
         return $sql;
                 
-        };
-    }
-    public function obtener_productos(){
+        }
+         public function obtener_productos()
         {
             $arrRespuesta = array();
             $respuesta = $this->conexion->query(" SELECT * FROM producto");
@@ -28,7 +27,7 @@ class ComprasModel {
             return $arrRespuesta;
         }
         public function obtener_compras()
-{
+    {
     $arrRespuesta = array(); 
     $respuesta = $this->conexion->query("SELECT id, id_producto, cantidad, precio, id_trabajador FROM compras");
     while ($objeto = $respuesta->fetch_object()) {
@@ -36,7 +35,7 @@ class ComprasModel {
 }
 return $arrRespuesta;
 
-}
     }
+         }
 
 ?>

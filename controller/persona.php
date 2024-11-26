@@ -10,7 +10,7 @@ $objpersona = new personaModel();
 
 if ($tipo =="listar"){
     $arr_Respuesta =array('status'=>false, 'contenido'=>'');
-    $arr_persona = $objPersona->obtener_personas();
+    $arr_persona = $objpersona->obtener_personas();
     if (!empty($arr_persona)){
        
         for($i=0;$i < count($arr_persona); $i++){

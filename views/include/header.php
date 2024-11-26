@@ -59,9 +59,9 @@ const base_url ='<?php echo BASE_URL;?>' </script>
     <li class="col-2">
         <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL?>ofertas"style="color: #0D0D0D;">Ofertas</a>
     </li>
-    <li class="nav1"><a href="">Carrito</a></li>;
+    
     
 
       </ul>
     
-     
+   
