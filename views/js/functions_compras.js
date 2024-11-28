@@ -28,7 +28,7 @@ async function listar_compras() {
         };
         console.log(json);
     } catch (error) {
-        console.error("Error al listar  productos" + error);
+        console.error("Error al listar  compras" + error);
     }
 }
 if (document.querySelector('#tbl_compra')) {
@@ -38,7 +38,7 @@ if (document.querySelector('#tbl_compra')) {
 
 async function Registrar() {
    
-    let id_proveedor = document.querySelector('#id_producto').value;
+    let id_producto= document.querySelector('#id_producto').value;
     let cantidad = document.querySelector('#cantidad').value;
     let precio = document.querySelector('#precio').value;
     let id_trabajador = document.querySelector('#id_trabajador').value;

@@ -58,7 +58,7 @@ async function Registrar(){
     let estado = document.getElementById('estado').value;
     let fecha_reg = document.getElementById('fecha_reg').value;
   
-    if (!nro_identidad || !razon_social || !telefono || !correo || !departamento || !provincia || !distrito || !cod_postal || !direccion || !rol || !password || !estado || !fecha_reg) {
+    if (!nro_identidad || !razon_social || !telefono || !correo || !departamento || !provincia || !distrito || !cod_postal || !direccion || !rol || !estado || !fecha_reg) {
         alert("Error, campos vacíos");
         return;
     }

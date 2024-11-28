@@ -1,4 +1,3 @@
-FORMULARIO DE REGISTRO DE PRODUCTO
 <form action="" class="form-control" id="frmRegistrar">
         <div class?="form group">
                 <label for="codigo">Codigo: </label>
@@ -22,11 +21,7 @@ FORMULARIO DE REGISTRO DE PRODUCTO
                         class="form-control" id="precio" name="precio"><br><br>
         </div>
 
-        <div class?="form group">
-                <label for="stock">Stock Inicial: </label>
-                <input type="number" required
-                        class="form-control" id="stock" name="Stock Inicial"><br><br>
-        </div>
+        
         <div class?="form group">
                 <label for="categoria">Categoria: </label>
                 <select name="categoria" id="categoria"class="form control"required>
@@ -54,9 +49,13 @@ FORMULARIO DE REGISTRO DE PRODUCTO
         </select>
         </div>
 
-        <button type="button" class="btn-success" onclick="registrar_producto()">Registrar</button>
+        <button type="button" class="btn-success" onclick="actualizar_producto()">Registrar</button>
 </form>
 <script src="<?php echo BASE_URL; ?>views/js/functions_product.js"></script>
 
 <script >listar_categorias();</script>
 <script >listar_proveedor();</script>
+<script> 
+    const id_p=<?php $pagina=explode("/", $_GET['views']); echo $pagina['1']?>;
+    ver_producto(id_p);
+</script>

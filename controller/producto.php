@@ -8,6 +8,7 @@ $objProducto = new ProductoModel();
 $objcategoria = new CategoriaModel();
 $objPersona = new PersonaModel();
 
+
 if ($tipo =="listar"){
     $arr_Respuesta =array('status'=>false, 'contenido'=>'');
     $arr_productos = $objProducto->obtener_productos();
@@ -20,7 +21,8 @@ if ($tipo =="listar"){
             
             $id_producto =$arr_productos[$i]->id;
             $id_producto = $arr_productos[$i]->nombre;
-            $opciones = '';
+      
+            $opciones = '<a href="'.BASE_URL.'editar producto/'.$id_producto.'">Editar</a><buntton onclick="eliminar_producto('.$id_producto.');">Eliminar</button>';
             $arr_productos[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
@@ -78,11 +80,21 @@ if ($tipo == "registrar") {
         echo json_encode($arr_Respuesta);
     }
 
-  if ($tipo == "listar") {
-  }
   if ($tipo == "ver") {
+    $id_producto = $_POST['id_producto'];
+    $arr_Respuesta = $objProducto->verProducto($id_producto);
+    //print_r($arr_Respuesta);
+    if (empty($arr_Respuesta)){
+        $arr_response = array('status'=> false,'mensaje'=>"datos encontrados",
+        'contenido'=> $arr_Respuesta);
+    }
+    echo json_encode($arr_response);
   }
   if ($tipo == "actualizar") {
+    
+
+  }
+  if ($tipo == "eliminar") {
   }
 }
 
