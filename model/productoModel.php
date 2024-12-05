@@ -8,16 +8,6 @@ class ProductoModel
         $this->conexion = new Conexion();
         $this->conexion = $this->conexion->connect();
     }
-
-    
-    public function obtener_productos(){
-        $arrRespuesta = array();
-        $respuesta = $this->conexion->query("SELECT * FROM producto");
-        while ($objeto = $respuesta->fetch_object()) {
-            array_push($arrRespuesta, $objeto);
-        }
-        return $arrRespuesta;
-    }
     public function registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $fecha, $imagen, $proveedor)
     {
         $sql = $this->conexion->query("CALL insertproducto('{$codigo}','{$nombre}','{$detalle}','{$precio}','{$stock}','{$categoria}','{$fecha}',
@@ -27,7 +17,25 @@ class ProductoModel
     }
     public function actualizar_imagen($id, $imagen){
     $sql = $this->conexion->query("UPDATE producto SET imagen='{$imagen}' WHERE id='{$id}'");
+    return 1;
     }
+    public function obtener_productos(
+   ){
+          $arrRespuesta = array();
+          $respuesta = $this->conexion->query("SELECT * FROM producto");
+
+          while ($objeto = $respuesta->fetch_object()) {
+               array_push($arrRespuesta, $objeto);
+        }
+        return $arrRespuesta;
+    }
+    public function obtener_productos_por_id($id)
+    {
+        $respuesta = $this->conexion->query("SELECT nombre FROM productos WHERE id = '($id)'");
+        $objeto = $respuesta->fetch_object();
+        return $objeto;
+    }
+
     public function verProducto($id){
         $sql = $this->conexion->query("SELECT * FROM producto WHERE id='$id");
         $sql= $sql->fetch_object();

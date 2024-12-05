@@ -54,8 +54,7 @@ if ($tipo =="listar"){
             $id_compras = $arr_compras[$i]->persona=$r_persona;
             $idCompra = $arr_Compras[$i]->id;
            
-            $opciones = '<button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-            <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>';
+            $opciones = '<a href="'.BASE_URL.'editar producto/'.$id_compras.'">Editar</a><buntton onclick="eliminar_producto('.$id_compras.');">Eliminar</button>';
             $arr_compras[$i]->options = $opciones;
 
     }
