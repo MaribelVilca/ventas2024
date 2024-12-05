@@ -92,7 +92,7 @@ if ($tipo == "registrar") {
   }
   if ($tipo == "actualizar") {
     
-
+  
   }
   if ($tipo == "eliminar") {
   }
