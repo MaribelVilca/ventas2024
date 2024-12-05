@@ -68,8 +68,8 @@ async function registrar_producto(){
     }
 
     console.log(json);
-   } catch (e){
-    console.log("Oops, ocurrio un error:" + e);
+   } catch (error){
+    console.log("Oops, ocurrio un error:" + error);
 
     
    }
@@ -149,9 +149,17 @@ async function ver_producto(id){
         }
         console.log(json);
 
-    }catch (error) {
-        console.log("oops ocurrio un error "+ error);
+    }catch (e) {
+        console.log("oops ocurrio un error "+ e);
     }
+    async function actualizar_producto(){
+    const datos = new FormData frmActualizar);
+    try{
+
+    }
+
+
+}
 
 }
   

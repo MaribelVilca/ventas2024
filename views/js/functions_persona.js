@@ -33,8 +33,8 @@ async function listar_persona() {
         
       }
       console.log(json);
-    }catch(error){
-        console.log("Oops salio un error al listar persona" + error);
+    }catch(e){
+        console.log("Oops salio un error al listar persona" + e);
     } 
  }
  if (document.querySelector('#tbl_persona')){
@@ -44,7 +44,7 @@ async function listar_persona() {
  
 
 
-async function Registrar(){
+async function RegistrarPersona(){
     let nro_identidad = document.getElementById('nro_identidad').value;
     let razon_social= document.getElementById('razon_social').value;
     let telefono= document.getElementById('telefono').value;
@@ -90,7 +90,7 @@ async function Registrar(){
         }
         console.log(json);
 
-    } catch (error) {
+    } catch (e) {
         console.log("Oops, ocurrió un error: " + e);
     }
 }

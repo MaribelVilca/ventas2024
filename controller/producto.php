@@ -42,7 +42,7 @@ if ($tipo == "registrar") {
     $tipoArchivo =strtolower(pathinfo($_FILES['imagen']['name'],PATHINFO_EXTENSION));
     
     if ($_POST)
-        $codigo = $_POST['codigo'];
+     $codigo = $_POST['codigo'];
     $nombre = $_POST['Nombre'];
     $detalle = $_POST['detalle'];
     $precio = $_POST['precio'];
@@ -85,7 +85,7 @@ if ($tipo == "registrar") {
     $arr_Respuesta = $objProducto->verProducto($id_producto);
     //print_r($arr_Respuesta);
     if (empty($arr_Respuesta)){
-        response = array('status'=> false,'mensaje'=>"Error,No hay informacion");
+        $arr_response = array('status'=> false,'mensaje'=>"Error,No hay informacion");
     }else{
         $arr_response = array('status'=> false,'mensaje'=>"datos encontrados",
         'contenido'=> $arr_Respuesta); 
@@ -95,11 +95,47 @@ if ($tipo == "registrar") {
    
   }
   if ($tipo == "actualizar") {
+    //print_r($_POST);
+   // print_r($_FILES['imagen']['tmp_name']);
+    $id = $_POST['id'];
+    $img = $_POST['imagen'];
+    $nombre = $_POST['nombre'];
+    $detalle = $_POST['detalle'];
+    $precio = $_POST['precio'];
+    $categoria = $_POST['categoria'];
+    $fecha = $_POST['fecha_vencimiento'];
+    $proveedor = $_POST['proveedor'];
+
+    if ($codigo == ""  || $detalle == "" || $precio == "" || $categoria == "" || $fecha_v== "" ||  $proveedor == "") {
+     $arr_Respuesta = array('status' => true, 'mensaje' => 'Error campos vacios');
+
+   } else {
+   $arr_producto=
+   $objProducto->actualizarProducto($id,$imagen,
+   $detalle, $precio, $categoria, $fecha_v,$proveedor);
+   if ($arrProducto->id_n> 0) {
+    $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualizar Correctamente');
+    if ($_FILES['imagen']
+    !=""){
+        unlink('../asset/img_productos/');
+        $tipoArchivo = strtolower(pathinfo($_FILES['imagen']
+        ["imagen"],PATHINFO_EXTENSION));
+        if (move_uploaded_file($archivo, $destino . '' . $id_producto.'.'.$tipoArchivo)){
+
+        }
+        
+
+    }
     
+   }else{
+    $arr_Respuesta = array('status'=> false,
+    'mensaje' => 'Error al actualizar producto'
+  );
+  }
   
   }
   if ($tipo == "eliminar") {
   }
-
+  }
 
 ?>

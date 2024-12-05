@@ -3,7 +3,7 @@ require_once "../library/conexion.php";
 class comprasModel {
     private $conexion;
     function __construct() {
-        $this->conexion = new Conexion();
+        $this->conexion = new conexion();
         $this->conexion = $this->conexion->connect();
     }
 

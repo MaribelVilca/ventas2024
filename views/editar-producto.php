@@ -1,4 +1,5 @@
-<form action="" class="form-control" id="frmRegistrar">
+<form action="" class="form-control" id="frmActualizar">
+        <input type=" hidden" name="id_producto">
         <div class?="form group">
                 <label for="codigo">Codigo: </label>
                 <input type="text" required
@@ -56,7 +57,7 @@
 <script >listar_categorias();</script>
 <script >listar_proveedor();</script>
 <script> 
-    //http://localhost/ventas_2024/editar-productos/1
+    //http://localhost/ventas_2024/editar-producto/1
     const id_p=<?php $pagina=explode("/", $_GET['views']); echo $pagina['1'];?>;
     ver_producto(id_p);
 </script>

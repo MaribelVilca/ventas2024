@@ -28,9 +28,9 @@
 </form>
 <script src="<?php echo BASE_URL;?>views/js/functions_compras.js"></script>
     <script>listar_productos();</script>
-    <script>listar_trabajadores();</script>
+    
 <script>
-        //http://localhost/Ventas_2024/editar-producto/1
+        //http://localhost/Ventas_2024/editar-compra/1
         const id_co=<?php $pagina=explode("/",$_GET['views']); echo $pagina['1'];?>;
         ver_compra(id_co);
     </script>

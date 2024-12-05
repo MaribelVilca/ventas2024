@@ -33,7 +33,7 @@ if ($tipo == "Registrar") {
     if ($_POST)
     $nro_identidad = $_POST['nro_identidad'];
     $razon_social = $_POST['razon_social'];
-    $telefo = $_POST['telefo'];
+    $telefono = $_POST['telefono'];
     $correo = $_POST['correo'];
     $departamento = $_POST['departamento'];
     $provincia = $_POST['provincia'];
@@ -44,9 +44,9 @@ if ($tipo == "Registrar") {
     $estado = $_POST['estado'];
     $fecha_reg = $_POST['fecha_reg'];
 
-    $secure_password =password_hash($dni,PASSWORD_DEFAULT);
+    $secure_password =password_hash($Dni,PASSWORD_DEFAULT);
 
-    if ($nro_identidad == "" || $razon_social == "" || $telefo == "" || $correo == "" || $departamento == "" || $provincia == "" || $distrito == "" || $cod_postal == "" || $direccion == ""|| $rol == ""
+    if ($nro_identidad == "" || $razon_social == "" || $telefono == "" || $correo == "" || $departamento == "" || $provincia == "" || $distrito == "" || $cod_postal == "" || $direccion == ""|| $rol == ""
     || $password== ""|| $estado == ""|| $fecha_reg == "") {
         $arr_Respuesta = array('status' => true, 'mensaje' => 'Error campos vacios');
 
@@ -67,7 +67,7 @@ if ($tipo == "listar_proveedor") {
     $arr_proveedor = $objPersona->obtener_proveedores();
     if (!empty($arr_proveedor)) {
 
-        for ($i 0; $i < count($arr_proveedor); $++){
+      for($i=0;$i < count($arr_proveedor); $i++){
             $id_categoria = $arr_Proveedor[$i]->id;
             $categoria = $arr_Proveedor[$i]->razon_social;
             $opciones = '';
@@ -85,7 +85,7 @@ if ($tipo == "listar_proveedor") {
         $arr_trabajador = $objPersona->obtener_proveedores();
         if (!empty($arr_trabajador)) {
     
-            for ($i 0; $i < count($arr_trabajador); $++){
+          for($i=0;$i < count($arr_trabajador); $i++){
                 $id_trabajador = $arr_trabajador[$i]->id;
                 $razon_social = $arr_trabajador[$i]->razon_social;
                 $opciones = '';

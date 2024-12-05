@@ -4,7 +4,7 @@ class vistaModelo{
 
     protected static function obtener_vista($vista){
         $palabras_primitivas =['usuarios','nuevo_usuario','usuario','producto','nuevo-producto','maquillajes','perfumes','tratamiento','joyeria','cuidadoPersonal','ofertas','descripcion','descripcion2','carrito1','registrar-categoria','nueva-persona','registrar-compras','productos','persona',
-        'compras','categorias','editar-producto','editar-persona','editar_compra'];
+        'compras','categorias','editar-producto','editar-persona','editar-compra','editar-categoria'];
         /*if (!isset($_SESSION['session_ventas_id'])){
             return"login";
         }*/

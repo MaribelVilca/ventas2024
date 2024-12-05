@@ -30,13 +30,39 @@ if ($tipo =="registrar"){
         $nombre = $_POST['nombre'];
         $detalle = $_POST['detalle'];
         if($nombre == "" || $detalle == ""){
-            $arr_Categorias = $objCategoria->registrar_Categoria($nombre,$detalle);
-
-        }    
+            $arr_Respuesta= array('status'=>false,
+            'mensaje'=> 'Error, campos vacios'
+        );
+    }else{
+        $arr_Categorias = $objCategoria -> registrar_categoria($nombre,$detalle);
+        if ($arr_Categorias->id >0){
+            $arr_Respuesta = array('status' =>true,
+            'mensaje' => 'Registro exitoso'
+        );
+    }else{
+        $arr_Respuesta = array(
+            'status'=> false,
+            'mensaje' =>'error al registrar producto'
+        );
+      }
+      echo json_encode($response);
+    }
+  }
+  if ($tipo == "ver") {
+    // print_r($_POST);
+   $id_categoria = $_POST['id_categoria'];
+   $arr_Respuesta = $objcompras->ver_categoria($id_categoria);
+   // print_r($arr_Respuesta);eso es para hacer la prueba 
+   if(empty($arr_Respuesta)){
+     $response = array('status' => false, 'mensaje' =>"Error, No hay informacion");
+   }else{
+     $response = array('status' => true, 'mensaje' => "Datos Encontrados", 'contenido' =>$arr_Respuesta);
+   }
+   echo json_encode($response);
         
-    }
+}
     
-
-    }
+}
+    
 
 ?>

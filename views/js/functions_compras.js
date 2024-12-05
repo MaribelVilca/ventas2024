@@ -28,7 +28,7 @@ async function listar_compras() {
         };
         console.log(json);
     } catch (error) {
-        console.error("Error al listar  compras" + error);
+        console.error("Error al listar  compras" + e);
     }
 }
 if (document.querySelector('#tbl_compra')) {
@@ -71,7 +71,7 @@ async function Registrar() {
         }
         console.log(json);
 
-       } catch (e){
+       } catch (error){
         console.log("Oops, ocurrio un error:" + e);
     
         

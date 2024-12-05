@@ -54,7 +54,7 @@ if ($tipo =="listar"){
             $id_compras = $arr_compras[$i]->persona=$r_persona;
             $idCompra = $arr_Compras[$i]->id;
            
-            $opciones = '<a href="'.BASE_URL.'editar producto/'.$id_compras.'">Editar</a><buntton onclick="eliminar_producto('.$id_compras.');">Eliminar</button>';
+            $opciones = '<a href="'.BASE_URL.'editar producto/'.$id_compras.'">Editar</a><buntton onclick="eliminar_producto('.$id_compras.');">Eliminar</button >';
             $arr_compras[$i]->options = $opciones;
 
     }
@@ -64,7 +64,19 @@ if ($tipo =="listar"){
     }
     echo json_encode($arr_Respuesta);  
 }
-
+if ($tipo == "ver") {
+    // print_r($_POST);
+   $id_compras = $_POST['id_compras'];
+   $arr_Respuesta = $objcompras->ver_compra($id_compras);
+   // print_r($arr_Respuesta);eso es para hacer la prueba 
+   if(empty($arr_Respuesta)){
+     $response = array('status' => false, 'mensaje' =>"Error, No hay informacion");
+   }else{
+     $response = array('status' => true, 'mensaje' => "Datos Encontrados", 'contenido' =>$arr_Respuesta);
+   }
+   echo json_encode($response);
+   }
+   
 
 
 ?>

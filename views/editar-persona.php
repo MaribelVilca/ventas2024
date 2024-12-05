@@ -53,8 +53,8 @@
                 <select name="rol" id="rol"class="form control"required>
                 <option>Seleccione</option>
                 <option value="Cliente">Cliente</option>
-                <option value="trabajdor">Cliente</option>
-                <option value="administrador">Cliente</option>
+                <option value="trabajdor">administrador</option>
+                <option value="administrador">trabajador</option>
 
          </select>
         </div>
@@ -76,7 +76,7 @@
 
 <script src="<?php echo BASE_URL;?>views/js/functions_persona.js"></script>
 <script>
-        //http://localhost/Ventas_2024/editar-producto/1
+        //http://localhost/Ventas_2024/editar-persona/1
         const id_pe=<?php $pagina=explode("/",$_GET['views']); echo $pagina['1'];?>;
         ver_persona(id_pe);
  </script>

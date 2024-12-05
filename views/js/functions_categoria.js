@@ -70,15 +70,15 @@ async function Registrar(){
             console.log(respuesta);
            json = await respuesta.json();
            if(json.status){
-            let datos = json.contenido;
-            let contenido_select = '<option value="">Seleccione</option>';
-            datos.forEach(element => {
-                contenido_select += '<option value="' + element.id +'">' + element.nombre + '</option>';
-              
-            });
-            document.getElementById('categoria').innerHTML = contenido_select;
+            
+            document.querySelector('#id').value = json.contenido.id;
+            document.querySelector('#nombre').value = json.contenido.nombre;
+            document.querySelector('#detalle').value = json.contenido.detalle;
+
+        }else {
+            window.location = base_url+"compra";
         }
-         console.log(respuesta);
+        console.log(json);
         }catch (e) {
             console.log("Error al cargar categorias" + e);
         }
