@@ -32,10 +32,16 @@ class comprasModel {
     $respuesta = $this->conexion->query("SELECT id, id_producto, cantidad, precio, id_trabajador FROM compras");
     while ($objeto = $respuesta->fetch_object()) {
         array_push($arrRespuesta, $objeto);
-}
-return $arrRespuesta;
+  }
+  return $arrRespuesta;
 
-    }
+ }
+ public function verCompra($id){
+    $sql = $this->conexion->query("SELECT * FROM compras WHERE id='$id");
+    $sql= $sql->fetch_object();
+    return $sql;
+
          }
+        }
 
 ?>

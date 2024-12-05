@@ -64,7 +64,7 @@ if ($tipo == "registrar") {
            
 
         $arrProducto = $objProducto->registrarProducto($codigo, $nombre, $detalle, $precio, $stock, $categoria, $fecha, $imagen, $proveedor);
-        if ($arrProducto->id > 0) {
+        if ($arrProducto->id_n> 0) {
             $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro Exitoso');
             $nombre = $arrProducto->id_n.".".$tipoArchivo;
        
@@ -85,10 +85,14 @@ if ($tipo == "registrar") {
     $arr_Respuesta = $objProducto->verProducto($id_producto);
     //print_r($arr_Respuesta);
     if (empty($arr_Respuesta)){
+        response = array('status'=> false,'mensaje'=>"Error,No hay informacion");
+    }else{
         $arr_response = array('status'=> false,'mensaje'=>"datos encontrados",
-        'contenido'=> $arr_Respuesta);
+        'contenido'=> $arr_Respuesta); 
     }
-    echo json_encode($arr_response);
+    echo json_encode($arr_response); 
+    }
+   
   }
   if ($tipo == "actualizar") {
     
@@ -96,6 +100,6 @@ if ($tipo == "registrar") {
   }
   if ($tipo == "eliminar") {
   }
-}
+
 
 ?>

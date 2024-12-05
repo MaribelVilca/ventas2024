@@ -59,12 +59,18 @@ async function Registrar() {
         });
         json = await respuesta.json();
         if(json.status){
-        swal("Registro", json.mensaje,"success");
-        }else{
-            swal("Registro", json.mensaje,"error");   
+
+            document.querySelector('#codigo').value = json.contenido.codigo;
+            document.querySelector('#id-producto').value = json.contenido.id_producto;
+            document.querySelector('#cantidad').value = json.contenido.cantidad;
+            document.querySelector('#precio').value = json.contenido.precio;
+            document.querySelector('#trabajador').value = json.contenido.trabajador;
+
+        }else {
+            window.location = base_url+"compra";
         }
-    
         console.log(json);
+
        } catch (e){
         console.log("Oops, ocurrio un error:" + e);
     

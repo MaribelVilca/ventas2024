@@ -75,11 +75,22 @@ async function Registrar(){
 
         let json = await respuesta.json();
         if (json.status) {
-            swal("Registro", json.mensaje, "success");
-        } else {
-            swal("Registro", json.mensaje, "error");
+            document.querySelector('#codigo').value = json.contenido.codigo;
+            document.querySelector('#nro_identidad').value = json.contenido.nro_identidad;
+            document.querySelector('#razon_social').value = json.contenido.razon_social;
+            document.querySelector('#telefono').value = json.contenido.telefono;
+            document.querySelector('#correo').value = json.contenido.contenido;
+            document.querySelector('#departamento').value = json.contenido.departamento;
+            document.querySelector('#direccion').value = json.contenido.direccion;
+            document.querySelector('#rol').value = json.contenido.rol;
+
+
+        }else {
+            window.location = base_url+"persona";
         }
-    } catch (e) {
+        console.log(json);
+
+    } catch (error) {
         console.log("Oops, ocurrió un error: " + e);
     }
 }

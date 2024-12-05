@@ -139,10 +139,10 @@ async function ver_producto(id){
             document.querySelector('#detalle').value = json.contenido.detalle;
             document.querySelector('#precio').value = json.contenido.precio;
             document.querySelector('#categoria').value = json.contenido.categoria;
-            document.querySelector('#fecha_vencim').value = json.contenido.codigo;
-           
+            document.querySelector('#fecha_vencim').value = json.contenido.fecha_vencimiento;
+            document.querySelector('#imagen').value = json.contenido.imagen;
+            document.querySelector('#proveedor').value = json.contenido.proveedor;
 
-           
 
         }else {
             window.location = base_url+"producto";

@@ -18,8 +18,7 @@ if ($tipo =="listar"){
             $razon_social = $arr_persona[$i]->razon_social;
            
            
-            $opciones = '<button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>';
+            $opciones = '<a href="'.BASE_URL.'editar producto/'.$id_persona.'">Editar</a><buntton onclick="eliminar_producto('.$id_persona.');">Eliminar</button>';
             $arr_persona[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
@@ -52,9 +51,8 @@ if ($tipo == "Registrar") {
         $arr_Respuesta = array('status' => true, 'mensaje' => 'Error campos vacios');
 
     } else {
-        $arrPersona = $objPersona->registrarPersona($nro_identidad, $razon_social, $telefo, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $password, 
-        $estado, $fecha_reg );
-        if ($arrPersona->id > 0) {
+        $arrPersona = $objPersona->registrarPersona($nro_identidad, $razon_social, $telefo, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $secure_password);
+        if ($objPersona->id > 0) {
             $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro Exitoso');
         //cargar archivos
         
@@ -64,11 +62,56 @@ if ($tipo == "Registrar") {
         echo json_encode($arr_Respuesta);
     }
 }
-if ($tipo == "listar") {
-}
+if ($tipo == "listar_proveedor") {
+    $arr_Respuesta = array('status' => false, 'contenido'=> '');
+    $arr_proveedor = $objPersona->obtener_proveedores();
+    if (!empty($arr_proveedor)) {
+
+        for ($i 0; $i < count($arr_proveedor); $++){
+            $id_categoria = $arr_Proveedor[$i]->id;
+            $categoria = $arr_Proveedor[$i]->razon_social;
+            $opciones = '';
+            $arr_Proveedor[$i]->options = $opciones;
+          }
+          $arr_Respuesta['status'] = true;
+          $arr_Respuesta['contenido'] = $arr_Proveedor;
+        }
+      
+        echo json_encode($arr_Respuesta);
+      }
+        
+      if ($tipo == "listar_trabajador") {
+        $arr_Respuesta = array('status' => false, 'contenido'=> '');
+        $arr_trabajador = $objPersona->obtener_proveedores();
+        if (!empty($arr_trabajador)) {
+    
+            for ($i 0; $i < count($arr_trabajador); $++){
+                $id_trabajador = $arr_trabajador[$i]->id;
+                $razon_social = $arr_trabajador[$i]->razon_social;
+                $opciones = '';
+                $arr_trabajador[$i]->options = $opciones;
+              }
+              $arr_Respuesta['status'] = true;
+              $arr_Respuesta['contenido'] = $arr_trabajador;
+            }
+          
+            echo json_encode($arr_Respuesta);
+          }
+    
 if ($tipo == "ver") {
+ // print_r($_POST);
+$id_persona = $_POST['id_persona'];
+$arr_Respuesta = $objPersona->verPersona($id_producto);
+// print_r($arr_Respuesta);eso es para hacer la prueba 
+if(empty($arr_Respuesta)){
+  $response = array('status' => false, 'mensaje' =>"Error, No hay informacion");
+}else{
+  $response = array('status' => true, 'mensaje' => "Datos Encontrados", 'contenido' =>$arr_Respuesta);
 }
-if ($tipo == "actualizar") {
+echo json_encode($response);
 }
+
+
+
 
 ?>
