@@ -55,6 +55,7 @@ FORMULARIO DE REGISTRO DE PRODUCTO
         </div>
 
         <button type="button" class="btn-success" onclick="registrar_producto()">Registrar</button>
+        
 </form>
 <script src="<?php echo BASE_URL; ?>views/js/functions_product.js"></script>
 

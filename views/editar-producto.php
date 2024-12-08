@@ -1,5 +1,6 @@
 <form action="" class="form-control" id="frmActualizar">
-        <input type=" hidden" name="id_producto">
+        <input type="hidden" name="id_producto" id="id_producto">
+        <input type="hidden" name="img" id="img">
         <div class?="form group">
                 <label for="codigo">Codigo: </label>
                 <input type="text" required

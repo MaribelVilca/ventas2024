@@ -41,5 +41,44 @@ class ProductoModel
         $sql= $sql->fetch_object();
         return $sql;
     }
+
+    
+    public function actualizar_producto( $id, $nombre, $detalle, $precio,$categoria, $fecha_v,$proveedor) {
+        $sql = $this->conexion->query("CALL actualizarproducto('{$id}',
+        '{$nombre}','{$detalle}','{$precio}','{$categoria}',
+        '{$fecha_v}','{$proveedor}')");
+        $sql = $sql->fetch_object();
+        return $sql;
+    }
+
+    public function eliminar_producto($id) {
+    $this->conexion->begin_transaction();
+
+    try {
+        $sql_eliminar_compras = "DELETE FROM compras WHERE id_producto = ?";
+        $query_compras = $this->conexion->prepare($sql_eliminar_compras);
+        $query_compras->bind_param("i", $id);
+
+        if (!$query_compras->execute()) {
+            throw new Exception("Error al eliminar las compras asociadas.");
+        }
+        $sql = "DELETE FROM producto WHERE id = ?";
+        $query = $this->conexion->prepare($sql);
+        $query->bind_param("i", $id);
+
+        if (!$query->execute()) {
+
+            throw new Exception("Error al eliminar el producto.");
+        }
+ 
+        $this->conexion->commit();
+        return true; 
+    } catch (Exception $e) {
+        $this->conexion->rollback();
+        return $e->getMessage();
+    }
+}
+    
+
 }
 ?>

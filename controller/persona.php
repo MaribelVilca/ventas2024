@@ -82,7 +82,7 @@ if ($tipo == "listar_proveedor") {
         
       if ($tipo == "listar_trabajador") {
         $arr_Respuesta = array('status' => false, 'contenido'=> '');
-        $arr_trabajador = $objPersona->obtener_proveedores();
+        $arr_trabajador = $objPersona->obtener_trabajadores();
         if (!empty($arr_trabajador)) {
     
           for($i=0;$i < count($arr_trabajador); $i++){

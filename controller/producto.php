@@ -95,47 +95,113 @@ if ($tipo == "registrar") {
    
   }
   if ($tipo == "actualizar") {
-    //print_r($_POST);
-   // print_r($_FILES['imagen']['tmp_name']);
-    $id = $_POST['id'];
-    $img = $_POST['imagen'];
-    $nombre = $_POST['nombre'];
-    $detalle = $_POST['detalle'];
-    $precio = $_POST['precio'];
-    $categoria = $_POST['categoria'];
-    $fecha = $_POST['fecha_vencimiento'];
-    $proveedor = $_POST['proveedor'];
-
-    if ($codigo == ""  || $detalle == "" || $precio == "" || $categoria == "" || $fecha_v== "" ||  $proveedor == "") {
-     $arr_Respuesta = array('status' => true, 'mensaje' => 'Error campos vacios');
-
-   } else {
-   $arr_producto=
-   $objProducto->actualizarProducto($id,$imagen,
-   $detalle, $precio, $categoria, $fecha_v,$proveedor);
-   if ($arrProducto->id_n> 0) {
-    $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualizar Correctamente');
-    if ($_FILES['imagen']
-    !=""){
-        unlink('../asset/img_productos/');
-        $tipoArchivo = strtolower(pathinfo($_FILES['imagen']
-        ["imagen"],PATHINFO_EXTENSION));
-        if (move_uploaded_file($archivo, $destino . '' . $id_producto.'.'.$tipoArchivo)){
-
+    if ($_POST) {
+        $id = $_POST['id_producto'];
+        $imagen = $_POST['img']; // Imagen anterior
+        $nombre = $_POST['nombre'];
+        $detalle = $_POST['detalle'];
+        $precio = $_POST['precio'];
+        $categoria = $_POST['categoria'];
+        $fecha_v = $_POST['fecha_v'];
+        $proveedor = $_POST['proveedor'];
+  
+        if ($nombre == "" || $detalle == "" || $precio == "" || $categoria == "" || $fecha_v == "" || $proveedor == "") {
+            $arr_Respuesta = array(
+                'status' => false,
+                'mensaje' => 'Error, campos vacíos'
+            );
+        } else {
+            $arrProducto = $objProducto->actualizar_producto($id, $nombre, $detalle, $precio, $categoria, $fecha_v, $proveedor);
+  
+            if ($arrProducto->p_id > 0) { // Producto actualizado correctamente//
+                $arr_Respuesta = array(
+                    'status' => true,
+                    'mensaje' => 'Actualizado Correctamente'
+                );
+  
+                if ($_FILES['imagen']['tmp_name'] != "") {
+                    $rutaBase = '../assets/img_productos/';
+                    
+                    // Eliminar todas las imágenes anteriores asociadas al producto//
+                    $archivos = glob($rutaBase . $id . '.*'); // Buscar archivos con el mismo nombre base//
+                    foreach ($archivos as $archivo) {
+                        if (is_file($archivo)) {
+                            unlink($archivo); // Eliminar archivo//
+                        }
+                    }
+  
+                    // Subir nueva imagen//
+                    $archivo = $_FILES['imagen']['tmp_name'];
+                    $tipoArchivo = strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
+                    $destino = $rutaBase . $id . '.' . $tipoArchivo;
+  
+                    // Validar tipos de archivo permitidos//
+                    $tiposPermitidos = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+                    if (in_array($tipoArchivo, $tiposPermitidos)) {
+                        if (move_uploaded_file($archivo, $destino)) {
+                            error_log("Imagen actualizada correctamente: $destino");
+                        } else {
+                            error_log("Error: No se pudo subir la imagen: $destino");
+                        }
+                    } else {
+                        error_log("Error: Tipo de archivo no permitido: $tipoArchivo");
+                    }
+                }
+            } else {
+                $arr_Respuesta = array(
+                    'status' => false,
+                    'mensaje' => 'Error al Actualizar Producto'
+                );
+            }
         }
-        
-
+        echo json_encode($arr_Respuesta);
     }
-    
-   }else{
-    $arr_Respuesta = array('status'=> false,
-    'mensaje' => 'Error al actualizar producto'
-  );
   }
   
-  }
   if ($tipo == "eliminar") {
+    if ($_POST) {
+        $id = $_POST['id_producto'];
+        $imagen = $_POST['img']; // Imagen asociada al producto
+  
+        if (empty($id)) {
+            $arr_Respuesta = array(
+                'status' => false,
+                'mensaje' => 'Error, el ID del producto es requerido'
+            );
+        } else {
+            $idEliminado = $objProducto->eliminar_producto($id);
+  
+            if ($idEliminado) {
+                // Eliminar la imagen asociada si la ruta es válida
+                $rutaImagen = $_SERVER['DOCUMENT_ROOT'] . '../assets/img_productos/' . $imagen; 
+  
+                if (!empty($imagen) && file_exists($rutaImagen)) {
+                    if (unlink($rutaImagen)) {
+                        $arr_Respuesta = array(
+                            'status' => true,
+                            'mensaje' => 'Producto y su imagen eliminados correctamente'
+                        );
+                    } else {
+                        $arr_Respuesta = array(
+                            'status' => true,
+                            'mensaje' => 'Producto eliminado correctamente, pero no se pudo eliminar la imagen. Verifique los permisos.'
+                        );
+                    }
+                } else {
+                    $arr_Respuesta = array(
+                        'status' => true,
+                        'mensaje' => 'Producto eliminado correctamente, sin imagen asociada o imagen no encontrada'
+                    );
+                }
+            } else {
+                // Error al eliminar en la base de datos
+                $arr_Respuesta = array(
+                    'status' => false,
+                    'mensaje' => 'Error al eliminar el producto en la base de datos'
+                );
+            }
+        }
+        echo json_encode($arr_Respuesta);
+    }
   }
-  }
-
-?>
+  
