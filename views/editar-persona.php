@@ -1,4 +1,4 @@
-<form action="" class="form-control" id="frmRegistrar">
+<form action="" class="form-control" id="formRegistrarper">
         
         <div class?="form group">
                 <label for="nro_identidad">N° de identidad: </label>

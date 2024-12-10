@@ -7,7 +7,6 @@ async function listar_categorias() {
          let cont  = 0;
          datos.forEach(item =>{
              let nueva_fila = document.createElement("tr");
-           
              nueva_fila.id = "fila" + item.id;
              cont += 1;
              nueva_fila.innerHTML = `
@@ -32,7 +31,7 @@ if (document.querySelector('#tbl_categoria')) {
     listar_categorias();
 }
 
-async function Registrar(){
+async function RegistrarCategoria(){
     let nombre= document.getElementById('#nombre').value;
     let detalle= document.querySelector('#detalle').value;
     if(nombre==""|| detalle ==""){
@@ -42,7 +41,7 @@ async function Registrar(){
     }
     try{
        
-        const datos = new FormData(frmRegistrar);
+        const datos = new FormData(frmRegistrarCategoria);
      
         let respuesta = await fetch(base_url + 'controller/categoria.php?tipo=Registrar', {
             method: 'POST',
@@ -64,22 +63,44 @@ async function Registrar(){
         
        }
     }
-    async function listar_categorias() {
-        try{
-            let respuesta = await fetch(base_url +'controller/Categoria.php?tipo=listar');
-            console.log(respuesta);
+    async function ver_categoria(id){
+        const formData = new FormData();
+        formData.append('id_categoria', id);
+        try {
+            let respuesta = await fetch(base_url+'controller/Categoria.php?tipo=ver',{
+                method: 'POST',
+                mode: 'cors',
+                cache:'no-cache',
+                body: formData
+            });
            json = await respuesta.json();
            if(json.status){
             
-            document.querySelector('#id').value = json.contenido.id;
+            document.querySelector('#id_categoria').value = json.contenido.id;
             document.querySelector('#nombre').value = json.contenido.nombre;
             document.querySelector('#detalle').value = json.contenido.detalle;
 
         }else {
-            window.location = base_url+"compra";
+            window.location = base_url+"categorias";
         }
         console.log(json);
         }catch (e) {
-            console.log("Error al cargar categorias" + e);
+            console.log("Opps ocurrio un error" + e);
+        }
+    }
+    async function actualizarcategoria(){
+        const datos = new FormData();
+        try {
+            const datos = new FormData(formActualizarCategoria);
+            let respuesta = await fetch(base_url+'controller/Categoria.php?tipo=actualizar',{
+                method: 'POST',
+                mode: 'cors',
+                cache:'no-cache',
+                body: datos
+            });
+           json = await respuesta.json();
+        console.log(json);
+        }catch (e) {
+            console.log("Opps ocurrio un error" + e);
         }
     }

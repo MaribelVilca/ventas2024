@@ -63,6 +63,30 @@ if ($tipo =="registrar"){
 }
     
 }
+    if ($tipo == "actualizar"){
+        if ($_POST){
+        $id = $_POST['id_categoria'];
+        $id = $_POST['nombre'];
+        $id = $_POST['detalle'];
+        if ($nombre == "" || $detalle ==""){
+            $arr_Respuesta = array(
+                'status' => false,'mensaje' => 'Error, campos vacíos');
+        }else{
+           $arr_Categoria = $objCategoria-> actualizarCategoria($id, $nombre, $detalle);
+           if ($arrCategoria-> p_id > 0) {
+            $arr_Respuesta = array('status' => true,'mensaje' => 'Actualizado Correctamente');
+           }else{
+             $arr_Respuesta = array('status' => false,'mensaje' => 'Error al Actualizar Producto');
+
+           }
+           }
+           echo json_encode($arr_Respuesta);
+        }
+
+  }
+
+
+
     
 
 ?>

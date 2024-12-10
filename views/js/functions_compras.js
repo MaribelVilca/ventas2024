@@ -17,7 +17,7 @@ async function listar_compras() {
                   <td>${item.cantidad}</td>
                   <td>${item.precio}</td>
                   <td>${item.trabajador,razon_social}</td>
-                  <td>${item.departamento}</td>
+                  <td>${item.options}</td>
 
                  </tr>
                   `;
@@ -28,7 +28,7 @@ async function listar_compras() {
         };
         console.log(json);
     } catch (error) {
-        console.error("Error al listar  compras" + e);
+        console.error("Error al listar  compras" + error);
     }
 }
 if (document.querySelector('#tbl_compra')) {
@@ -36,20 +36,20 @@ if (document.querySelector('#tbl_compra')) {
 }
 
 
-async function Registrar() {
+async function RegistrarCompra() {
    
     let id_producto= document.querySelector('#id_producto').value;
     let cantidad = document.querySelector('#cantidad').value;
     let precio = document.querySelector('#precio').value;
-    let id_trabajador = document.querySelector('#id_trabajador').value;
+    let trabajador = document.querySelector('#trabajador').value;
     
-    if (id_producto== "" || cantidad == "" ||precio =="" || id_trabajador=="") {
+    if (id_producto== "" || cantidad == "" ||precio =="" ||trabajador=="") {
         alert("Error!!, Campos vacíos");
         return;
     }
     try{
         
-        const datos = new FormData(frmRegistrar);
+        const datos = new FormData(formRegistrarCom);
       
         let respuesta = await fetch(base_url + 'controller/compras.php?tipo=Registrar', {
             method: 'POST',
@@ -58,23 +58,79 @@ async function Registrar() {
             body: datos
         });
         json = await respuesta.json();
-        if(json.status){
+        if (json.status) {
+            swal("registro", json.mensaje, "success");
+        } else {
+            swal("Registro", json.mensaje, "error");
+        }
 
-            document.querySelector('#codigo').value = json.contenido.codigo;
-            document.querySelector('#id-producto').value = json.contenido.id_producto;
+        console.log(json);
+    } catch (e) {
+        console.log("Oops, ocurrio un error" + e)
+    }
+}
+async function listar_productos() {
+    try {
+        // envia datos hacia el controlador//
+        let respuesta = await fetch(base_url +
+            'controller/producto.php?tipo=listar');
+        json = await respuesta.json();
+        if (json.status) {
+            let datos = json.contenido;
+            let contenido_select = '<option value="">Seleccione</option>'
+            datos.forEach(element => {
+                contenido_select += '<option value="' + element.id + '">' + element.nombre + '</option>';
+               
+            });
+            document.getElementById('id_producto').innerHTML = contenido_select;
+        }
+        console.log(respuesta);
+    } catch (e) {
+        console.e("Error al cargar producto" + e)
+    }
+}
+async function listar_trabajadores() {
+    try {
+        
+        let respuesta = await fetch(base_url +
+            'controller/persona.php?tipo=listar');
+        json = await respuesta.json();
+        if (json.status) {
+            let datos = json.contenido;
+            let contenido_select = '<option value="">Seleccione</option>'
+            datos.forEach(element => {
+                contenido_select += '<option value="' + element.id + '">' + element.razon_social + '</option>';
+               
+            });
+            document.getElementById('trabajador').innerHTML = contenido_select;
+        }
+        console.log(respuesta);
+    } catch (e) {
+        console.e("Error al cargar trabajador" + e)
+    }
+}
+   async function ver_compra(id) {
+    const formData = new FormData();
+    formData.append('id_compra', id);
+    try {
+        let respuesta = await fetch(base_url + 'controller/compras.php?tipo=ver', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: datos
+        });
+        json = await respuesta.json();
+        if (json.status){
+            document.querySelector('#id_producto').value = json.contenido.id_producto;
             document.querySelector('#cantidad').value = json.contenido.cantidad;
             document.querySelector('#precio').value = json.contenido.precio;
-            document.querySelector('#trabajador').value = json.contenido.trabajador;
+            document.querySelector('#trabajador').value = json.contenido.id_trabajador;
 
-        }else {
-            window.location = base_url+"compra";
+        }else{
+            window.location = base_url+"compras";
         }
         console.log(json);
-
-       } catch (error){
-        console.log("Oops, ocurrio un error:" + e);
-    
-        
-       }
+    } catch (error) {
+        console.log("Opps ocurrio un error" + error);
     }
-        
+}

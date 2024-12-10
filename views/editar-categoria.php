@@ -1,6 +1,5 @@
-<form action="" class="form-control" id="frmRegistrar">
-        <div class?="form group">
-</div>
+<form action="" class="form-control" id="formActualizarCategoria">
+<input type="hidden" name="id_categoria" id="id_categoria" value="">
         <div class?="form group">
                 <label for="nombre">Nombre: </label>
                 <input type="text" required

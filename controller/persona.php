@@ -44,7 +44,7 @@ if ($tipo == "Registrar") {
     $estado = $_POST['estado'];
     $fecha_reg = $_POST['fecha_reg'];
 
-    $secure_password =password_hash($Dni,PASSWORD_DEFAULT);
+    $secure_password =password_hash($nro_identidad,PASSWORD_DEFAULT);
 
     if ($nro_identidad == "" || $razon_social == "" || $telefono == "" || $correo == "" || $departamento == "" || $provincia == "" || $distrito == "" || $cod_postal == "" || $direccion == ""|| $rol == ""
     || $password== ""|| $estado == ""|| $fecha_reg == "") {

@@ -43,9 +43,9 @@ if (document.querySelector('#frm_iniciar_sesion')) {
         iniciar_sesion();
     }
 }
-    async function cerrar_sesion() {
+async function cerrar_sesion() {
         
-        try{
+    try{
        let respuesta =await fetch(base_url + 'controller/login.php?tipo=cerrar-sesion', {
         method: 'POST',
         mode: 'cors',

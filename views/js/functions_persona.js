@@ -64,7 +64,7 @@ async function RegistrarPersona(){
     }
 
     try {
-        const datos = new FormData(document.getElementById('frmRegistrar'));
+        const datos = new FormData(formRegistrarper);
 
         let respuesta = await fetch(base_url + 'controller/persona.php?tipo=Registrar', {
             method: 'POST',
@@ -75,6 +75,28 @@ async function RegistrarPersona(){
 
         let json = await respuesta.json();
         if (json.status) {
+            swal("registro", json.mensaje, "success");
+        } else {
+            swal("registro", json.mensaje, "error");
+        }
+        console.log(json);
+
+    } catch (e) {
+        console.log("Oops, ocurrio un error" + e);
+    }
+}
+async function ver_persona(id) {
+    const formData = new FormData();
+    formData.append('id_persona', id);
+    try {
+        let respuesta = await fetch(base_url+'controller/Persona.php?tipo=ver',{
+            method: 'POST',
+            mode: 'cors',
+            cache:'no-cache',
+            body: formData
+        });
+        json = await respuesta.json();
+        if (json.status){
             document.querySelector('#codigo').value = json.contenido.codigo;
             document.querySelector('#nro_identidad').value = json.contenido.nro_identidad;
             document.querySelector('#razon_social').value = json.contenido.razon_social;
@@ -83,14 +105,12 @@ async function RegistrarPersona(){
             document.querySelector('#departamento').value = json.contenido.departamento;
             document.querySelector('#direccion').value = json.contenido.direccion;
             document.querySelector('#rol').value = json.contenido.rol;
-
-
-        }else {
-            window.location = base_url+"persona";
+        }else{
+            window.location = base_url+"personas"; 
         }
         console.log(json);
+} catch (error) {
+    console.log("Opps ocurrio un error" + error);
+}
 
-    } catch (e) {
-        console.log("Oops, ocurrió un error: " + e);
-    }
 }

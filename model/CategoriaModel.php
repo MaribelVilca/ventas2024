@@ -8,8 +8,7 @@ class CategoriaModel
         $this->conexion = new Conexion();
         $this->conexion = $this->conexion->connect();
     }
-    public function obtener_categorias()
-    {
+    public function obtener_categorias(){
         $arrRespuesta = array();
         $respuesta = $this->conexion->query("SELECT * FROM categoria");
         while ($objeto = $respuesta->fetch_object()) {
@@ -17,18 +16,34 @@ class CategoriaModel
         }
         return $arrRespuesta;
     }
-    public function registrar_categoria(
+    public function registrarCategoria(
         $nombre,$detalle,
     ){
         $sql = $this->conexion->query("CALL insertcategoria('{$nombre}',{$detalle}')");
         $sql = $sql->fetch_object();
         return $sql;
     }
-    public function obtener_categoria_id($id){
+    public function obtener_categoria($id){
         $respuesta = $this->conexion->query("SELECT * FROM categoria WHERE id='{$id}'");
         $respuesta = $respuesta->fetch_object();
         return $respuesta;
     }
-    
+    public function verCategoria($id) {
+        $sql = $this->conexion->query("SELECT * FROM categoria WHERE id='{$id}'");
+        $sql = $sql->fetch_object();
+        return $sql;
+    }
+    public function actualizarCategoria($id, $nombre, $detalle){
+       try {
+        $sql = "CALL actualizarCategoria(?, ?, ?)";
+        $query = $this->conexion->prepare($sql);
+        $query->execute([$id, $nombre, $detalle]);
+        return true;
+
+      }  catch (PDOException $e){
+        return false;
+      }
+    }
 }
+
 ?>

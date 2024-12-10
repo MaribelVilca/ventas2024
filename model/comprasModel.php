@@ -7,9 +7,9 @@ class comprasModel {
         $this->conexion = $this->conexion->connect();
     }
 
-    public function registrarcompras($id_proveedor, $cantidad, $precio, $id_trabajador) {
-        $sql = $this->conexion->query("CALL insertCompra('{$id_proveedor}', '{$cantidad}', '{$precio}','{$id_trabajador}')");
-       if ($sql == false){
+    public function registrarcompras($id_proveedor, $cantidad, $precio, $trabajador) {
+        $sql = $this->conexion->query("CALL insertcompras('{$id_proveedor}', '{$cantidad}', '{$precio}','{$trabajador}')");
+        if ($sql == false){
         print_r(value: $this->conexion->error);
        }
         $sql = $sql->fetch_object();
@@ -37,7 +37,7 @@ class comprasModel {
 
  }
  public function verCompra($id){
-    $sql = $this->conexion->query("SELECT * FROM compras WHERE id='$id");
+    $sql = $this->conexion->query("SELECT * FROM compras WHERE id='{$id}'");
     $sql= $sql->fetch_object();
     return $sql;
 

@@ -70,11 +70,13 @@ class ProductoModel
 
             throw new Exception("Error al eliminar el producto.");
         }
- 
+ //confirmar la transaccion//
         $this->conexion->commit();
+        //el producto se elimino correctamente//
         return true; 
     } catch (Exception $e) {
         $this->conexion->rollback();
+        //retornar el mensaje del error//
         return $e->getMessage();
     }
 }

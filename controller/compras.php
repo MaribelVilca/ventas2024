@@ -14,16 +14,16 @@ if ($tipo == 'registrar') {
         $id_producto = $_POST['id_producto'];
         $cantidad = $_POST['cantidad'];
         $precio = $_POST['precio'];
-        $id_trabajador = $_POST['id_trabajador'];
-        if ($id_producto == "" || $cantidad == "" || $precio == "" || $id_trabajador == "") {
+        $trabajador = $_POST['trabajador'];
+        if ($id_producto == "" || $cantidad == "" || $precio == "" || $trabajador == "") {
         
             $arr_Respuesta = array('status'=>false,'mensaje'=>'Error, campos vacíos');
         }else{
            
-            $arrCompra = $objCompra->registrarcompras(
-                $id_producto, $cantidad, $precio, $id_trabajador);
+            $arrProducto= $objCompras->registrarcompras(
+                $id_producto, $cantidad, $precio, $trabajador);
 
-            if ($arrCompra->id>0) {
+            if ($arrProducto->id>0) {
                 $arr_Respuesta = array('status'=>true,'mensaje'=>'Registro exitoso.');
 
             }else{
@@ -44,17 +44,16 @@ if ($tipo =="listar"){
         for($i=0;$i < count($arr_compras); $i++){
             $id_producto = $arr_compras[$i]->id_producto;
             $r_producto = $objProducto->obtener_productos($id_producto);
-            $arr_compras[$i]->producto=$r_producto; 
+            $arr_Compras[$i]->producto=$r_producto; 
             
         
 
-           $id_persona = $arr_compras[$i]->$id_persona;
-            $r_persona = $objPersona->obtener_personas($id_producto);
-            $arr_compras[$i]->persona=$r_persona; 
-            $id_compras = $arr_compras[$i]->persona=$r_persona;
+           $id_trabajador = $arr_Compras[$i]->$id_persona;
+            $r_trabajador = $objPersona->obtener_personas($id_producto);
+            $arr_Compras[$i]->$r_trabajador=$r_trabajador; 
             $idCompra = $arr_Compras[$i]->id;
            
-            $opciones = '<a href="'.BASE_URL.'editar producto/'.$id_compras.'">Editar</a><buntton onclick="eliminar_producto('.$id_compras.');">Eliminar</button >';
+            $opciones = '<a href="'.BASE_URL.'editar-compra/'.$id_compras.'">Editar</a><buntton onclick="eliminar_producto('.$id_compras.');">Eliminar</button >';
             $arr_compras[$i]->options = $opciones;
 
     }
