@@ -16,15 +16,13 @@ if ($tipo =="listar"){
        //recordemos el array para agregar las opciones de//
         for($i=0;$i < count($arr_productos); $i++){
             $id_categoria = $arr_productos[$i]->id_categoria;
-            $r_categoria = $objcategoria->obtener_categoria_id($id_categoria);
+            $r_categoria = $objcategoria->obtener_categoria($id_categoria);
             $arr_productos[$i]->categoria=$r_categoria; 
             
             $id_producto =$arr_productos[$i]->id;
             $id_producto = $arr_productos[$i]->nombre;
       
-            $opciones = '<a href=" ' . BASE_URL . 'editar-producto/' . $id_producto . '"><button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button></a>
-<button class="btn btn-danger btn-sm" onclick="eliminar_producto(' . $id_producto . ');"><i class="fas fa-trash-alt"></i>
-</button>';
+            $opciones = '<a href="'.BASE_URL.'editar producto/'.$id_producto.'">Editar</a><buntton onclick="eliminar_producto('.$id_producto.');">Eliminar</button>';
             $arr_productos[$i]->options = $opciones;
         }
         $arr_Respuesta['status'] = true;
@@ -128,7 +126,7 @@ if ($tipo == "registrar") {
                     $archivos = glob($rutaBase . $id . '.*'); // Buscar archivos con el mismo nombre base//
                     foreach ($archivos as $archivo) {
                         if (is_file($archivo)) {
-                            unlink($archivo); // Eliminar archivo//
+                            unlink($archivo); 
                         }
                     }
   
@@ -160,50 +158,13 @@ if ($tipo == "registrar") {
     }
   }
   
-  if ($tipo == "eliminar") {
-    if ($_POST) {
-        $id = $_POST['id_producto'];
-        $imagen = $_POST['img']; // Imagen asociada al producto
-  
-        if (empty($id)) {
-            $arr_Respuesta = array(
-                'status' => false,
-                'mensaje' => 'Error, el ID del producto es requerido'
-            );
-        } else {
-            $idEliminado = $objProducto->eliminar_producto($id);
-  
-            if ($idEliminado) {
-                // Eliminar la imagen asociada si la ruta es válida
-                $rutaImagen = $_SERVER['DOCUMENT_ROOT'] . '../assets/img_productos/' . $imagen; 
-  
-                if (!empty($imagen) && file_exists($rutaImagen)) {
-                    if (unlink($rutaImagen)) {
-                        $arr_Respuesta = array(
-                            'status' => true,
-                            'mensaje' => 'Producto y su imagen eliminados correctamente'
-                        );
-                    } else {
-                        $arr_Respuesta = array(
-                            'status' => true,
-                            'mensaje' => 'Producto eliminado correctamente, pero no se pudo eliminar la imagen. Verifique los permisos.'
-                        );
-                    }
-                } else {
-                    $arr_Respuesta = array(
-                        'status' => true,
-                        'mensaje' => 'Producto eliminado correctamente, sin imagen asociada o imagen no encontrada'
-                    );
-                }
-            } else {
-                // Error al eliminar en la base de datos
-                $arr_Respuesta = array(
-                    'status' => false,
-                    'mensaje' => 'Error al eliminar el producto en la base de datos'
-                );
-            }
-        }
-        echo json_encode($arr_Respuesta);
+  if ($tipo=="eliminar") {
+    $id_producto = $_POST['id_producto'];
+    $arrProducto = $odjProducto->eliminar_producto($id_producto);
+    if (empty($arr_Respuesta)) {
+        $response = array('status' => false);
+    }else {
+        $response = array('status' => true);
     }
-  }
-  
+    echo json_decode($arr_Respuesta);
+}

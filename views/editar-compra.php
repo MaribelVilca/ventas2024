@@ -1,5 +1,8 @@
+
 <form action="" class="form-control" id="formRegistrarCom">
         <div class?="form group">
+
+
 </div>
         <div class?="form group">
                 <label for="id_producto">Id producto: </label>

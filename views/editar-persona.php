@@ -70,7 +70,7 @@
                         class="form-control" id="fecha_reg" name="fecha_reg"><br><br>
         </div>
 
-        <button type="button" class="btn btn-success" onclick="Registrar();">Registrar</button>
+        <button type="button" class="btn btn-success" onclick="Registrarper();">registrar</button>
 </form>
 
 

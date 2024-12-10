@@ -1,4 +1,4 @@
-<form action="" class="form-control" id="frmRegistrar">
+<form action="" class="form-control" id="frmRegistrarCom">
         <div class?="form group">
 </div>
         <div class?="form group">

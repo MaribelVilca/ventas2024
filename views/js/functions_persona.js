@@ -66,7 +66,7 @@ async function RegistrarPersona(){
     try {
         const datos = new FormData(formRegistrarper);
 
-        let respuesta = await fetch(base_url + 'controller/persona.php?tipo=Registrar', {
+        let respuesta = await fetch(base_url + 'controller/persona.php?tipo=Registrarper', {
             method: 'POST',
             mode: 'cors',
             cache: 'no-cache',
@@ -89,7 +89,7 @@ async function ver_persona(id) {
     const formData = new FormData();
     formData.append('id_persona', id);
     try {
-        let respuesta = await fetch(base_url+'controller/Persona.php?tipo=ver',{
+        let respuesta = await fetch(base_url+'controller/persona.php?tipo=ver',{
             method: 'POST',
             mode: 'cors',
             cache:'no-cache',

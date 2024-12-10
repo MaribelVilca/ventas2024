@@ -27,8 +27,8 @@ async function listar_compras() {
             });
         };
         console.log(json);
-    } catch (error) {
-        console.error("Error al listar  compras" + error);
+    } catch (e) {
+        console.error("Error al listar  compras" + e);
     }
 }
 if (document.querySelector('#tbl_compra')) {
@@ -36,7 +36,7 @@ if (document.querySelector('#tbl_compra')) {
 }
 
 
-async function RegistrarCompra() {
+async function registrarcompras() {
    
     let id_producto= document.querySelector('#id_producto').value;
     let cantidad = document.querySelector('#cantidad').value;
