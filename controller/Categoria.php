@@ -82,6 +82,16 @@ if ($tipo =="registrar"){
            }
            echo json_encode($arr_Respuesta);
         }
+        if ($tipo=="eliminar") {
+          $id_categoria = $_POST['id_categoria'];
+          $arrcategoria = $odjcategoria->eliminar_categoria($id_categoria);
+          if (empty($arr_Respuesta)) {
+              $response = array('status' => false);
+          }else {
+              $response = array('status' => true);
+          }
+          echo json_decode($arr_Respuesta);
+      }
 
   }
 

@@ -132,3 +132,28 @@ async function listar_trabajadores() {
         console.log("Opps ocurrio un error" + error);
     }
 }
+async function fnt_eliminar(id) {
+    const formdata = new FormData();
+    formData.append('id_compra',id);
+    try {
+        let respuesta = await fetch
+        (base_url + 'controller/compra.php?tipo=eliminar',{
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no_cache',
+            body: formdata
+        });
+        json = await respuesta.json();
+        if (json.status){
+            swal("Eliminar","Eliminado correctamente","success");
+            document.querySelector('#fila'+ id).remove();
+        }else{
+            swal ('Eliminar','Error al eliminar','warning');
+        }
+
+    }catch (e) {
+        console.log("ocurrio error"+ e);
+
+    }
+    
+ }

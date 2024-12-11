@@ -111,7 +111,16 @@ if(empty($arr_Respuesta)){
 echo json_encode($response);
 }
 
-
+if ($tipo=="eliminar") {
+  $id_persona = $_POST['id_persona'];
+  $arrpersona = $odjpersona->eliminar_persona($id_persona);
+  if (empty($arr_Respuesta)) {
+      $response = array('status' => false);
+  }else {
+      $response = array('status' => true);
+  }
+  echo json_decode($arr_Respuesta);
+}
 
 
 ?>

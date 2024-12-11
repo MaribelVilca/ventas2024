@@ -41,7 +41,12 @@ class comprasModel {
     $sql= $sql->fetch_object();
     return $sql;
 
-         }
-        }
+ }
+ public function eliminar_compras( $id) {
+    $sql = $this->conexion->query("CALL eliminarcompras('{$id}')");
+    $sql = $sql->fetch_object();
+    return $sql;
+}
+}
 
 ?>

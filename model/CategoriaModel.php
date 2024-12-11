@@ -44,6 +44,11 @@ class CategoriaModel
         return false;
       }
     }
+    public function eliminar_Categoria( $id) {
+        $sql = $this->conexion->query("CALL eliminarcategoria('{$id}')");
+        $sql = $sql->fetch_object();
+        return $sql;
+    }
 }
 
 ?>

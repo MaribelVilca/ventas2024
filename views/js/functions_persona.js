@@ -114,3 +114,28 @@ async function ver_persona(id) {
 }
 
 }
+async function fnt_eliminar(id) {
+    const formdata = new FormData();
+    formData.append('id_persona',id);
+    try {
+        let respuesta = await fetch
+        (base_url + 'controller/persona.php?tipo=eliminar',{
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no_cache',
+            body: formdata
+        });
+        json = await respuesta.json();
+        if (json.status){
+            swal("Eliminar","Eliminado correctamente","success");
+            document.querySelector('#fila'+ id).remove();
+        }else{
+            swal ('Eliminar','Error al eliminar','warning');
+        }
+
+    }catch (e) {
+        console.log("ocurrio error"+ e);
+
+    }
+    
+ }

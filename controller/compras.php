@@ -75,7 +75,16 @@ if ($tipo == "ver") {
    }
    echo json_encode($response);
    }
-   
+   if ($tipo=="eliminar") {
+    $id_compras= $_POST['id_compras'];
+    $arrcompras = $odjcompras->eliminar_compras($id_compras);
+    if (empty($arr_Respuesta)) {
+        $response = array('status' => false);
+    }else {
+        $response = array('status' => true);
+    }
+    echo json_decode($arr_Respuesta);
+}
 
 
 ?>
