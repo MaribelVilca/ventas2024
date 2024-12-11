@@ -14,13 +14,13 @@ if ($tipo == 'registrar') {
         $id_producto = $_POST['id_producto'];
         $cantidad = $_POST['cantidad'];
         $precio = $_POST['precio'];
-        $trabajador = $_POST['trabajador'];
-        if ($id_producto == "" || $cantidad == "" || $precio == "" || $trabajador == "") {
+        $trabajador = $_POST['id_trabajador'];
+        if ($id_producto == "" || $cantidad == "" || $precio == "" || $id_trabajador == "") {
         
             $arr_Respuesta = array('status'=>false,'mensaje'=>'Error, campos vacíos');
         }else{
            
-            $arrProducto= $objCompras->registrarcompras(
+            $arrProducto= $objCompras->Registrarcompras(
                 $id_producto, $cantidad, $precio, $trabajador);
 
             if ($arrProducto->id>0) {

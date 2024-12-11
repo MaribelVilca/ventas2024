@@ -16,7 +16,7 @@ class CategoriaModel
         }
         return $arrRespuesta;
     }
-    public function registrarCategoria(
+    public function RegistrarCategoria(
         $nombre,$detalle,
     ){
         $sql = $this->conexion->query("CALL insertcategoria('{$nombre}',{$detalle}')");
@@ -33,7 +33,7 @@ class CategoriaModel
         $sql = $sql->fetch_object();
         return $sql;
     }
-    public function actualizarCategoria($id, $nombre, $detalle){
+    public function ActulizarCategoria($id, $nombre, $detalle){
        try {
         $sql = "CALL actualizarCategoria(?, ?, ?)";
         $query = $this->conexion->prepare($sql);
