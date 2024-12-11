@@ -10,7 +10,7 @@
                 <input type="text" required
                         class="form-control" id="detalle" name="detalle"><br><br>
         </div>
-        <button type="button" class="btn-success" onclick="Registrar()">Registrar</button>
+        <button type="button" class="btn-success" onclick="RegistrarCategoria()">Registrar</button>
 </form>
 <script src="<?php echo BASE_URL; ?>views/js/functions_categoria.js"></script>
 <script>
