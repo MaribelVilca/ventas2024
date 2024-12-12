@@ -178,7 +178,7 @@ async function actualizar_producto() {
        
         const datos = new FormData(frmActualizar);
         
-        let respuesta = await fetch(base_url + 'controller/producto.php?tipo=actualizar', {
+        let respuesta = await fetch(base_url + 'controller/producto.php?tipo=Actualizar', {
             method: 'POST',
             mode: 'cors',
             cache: 'no-cache',

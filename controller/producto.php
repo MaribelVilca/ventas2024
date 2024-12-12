@@ -113,7 +113,7 @@ if ($tipo == "Registrar") {
         } else {
             $arrProducto = $objProducto->actualizar_producto($id, $nombre, $detalle, $precio, $categoria, $fecha_v, $proveedor);
   
-            if ($arrProducto->p_id > 0) { // Producto actualizado correctamente//
+            if ($arrProducto->p_id > 0) { 
                 $arr_Respuesta = array(
                     'status' => true,
                     'mensaje' => 'Actualizado Correctamente'
@@ -122,8 +122,7 @@ if ($tipo == "Registrar") {
                 if ($_FILES['imagen']['tmp_name'] != "") {
                     $rutaBase = '../assets/img_productos/';
                     
-                    // Eliminar todas las imágenes anteriores asociadas al producto//
-                    $archivos = glob($rutaBase . $id . '.*'); // Buscar archivos con el mismo nombre base//
+                    $archivos = glob($rutaBase . $id . '.*'); 
                     foreach ($archivos as $archivo) {
                         if (is_file($archivo)) {
                             unlink($archivo); 

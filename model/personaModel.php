@@ -73,8 +73,8 @@ public function verPersona($id) {
     $sql = $sql->fetch_object();
     return $sql;
 }
-public function ActualizarPersona($id, $nro_identidad, $razon_social, $telefono, $correo,$departamento,$direccion,$rol) {
-    $sql = $this->conexion->query("CALL ActualizarPersona('{$id}',
+public function Actualizarpersona($id, $nro_identidad, $razon_social, $telefono, $correo,$departamento,$direccion,$rol) {
+    $sql = $this->conexion->query("CALL Actualizarpersona('{$id}',
     '{$nro_identidad}','{$razon_social}','{$telefono}','{$correo}','{$departamento}','{$direccion}','{$rol}'
     )");
     $sql = $sql->fetch_object();

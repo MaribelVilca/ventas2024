@@ -115,7 +115,7 @@ async function ver_persona(id) {
 
 }
 
-async function ActualizarPersona() {
+async function Actualizarpersona() {
     const datos = new FormData();
     try {
        

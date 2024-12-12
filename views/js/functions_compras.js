@@ -132,12 +132,12 @@ async function listar_trabajadores() {
         console.log("Opps ocurrio un error" + error);
     }
 }
-async function actualizarcompras() {
+async function Actualizarcompras() {
     const datos = new FormData();
     try {
        
-        const datos = new FormData(formRegistrarCom);
-        let respuesta = await fetch(base_url + 'controller/Compra.php?tipo=actualizar', {
+        const datos = new FormData(formActualizarCom);
+        let respuesta = await fetch(base_url + 'controller/compras.php?tipo=Actualizar', {
             method: 'POST',
             mode: 'cors',
             cache: 'no-cache',

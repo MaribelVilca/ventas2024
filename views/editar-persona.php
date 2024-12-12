@@ -70,7 +70,10 @@
                         class="form-control" id="fecha_reg" name="fecha_reg"><br><br>
         </div>
 
-        <button type="button" class="btn btn-success" onclick=" ActualizarPersona();">Actualizar</button>
+        <button type="button" class="btn btn-secondary" onclick="Actualizarpersona();">
+        <i class="fas fa-arrow-left"></i> Actualizar </button>
+        <button type="button" class="btn btn-secondary" onclick="window.history.back();">
+        <i class="fas fa-arrow-left"></i> Atras </button>
 </form>
 
 

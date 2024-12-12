@@ -42,7 +42,7 @@ class comprasModel {
     return $sql;
 
  }
- public function actualizarcompras( $id, $id_producto, $cantidad, $precio,$id_trabajador) {
+ public function Actualizarcompras( $id, $id_producto, $cantidad, $precio,$id_trabajador) {
        
     $sql = $this->conexion->query("CALL actualizarcompras('{$id}',
     '{$id_producto}','{$cantidad}','{$precio}','{$id_trabajador}'

@@ -51,7 +51,10 @@
         </select>
         </div>
 
-        <button type="button" class="btn-success" onclick="actualizar_producto()">Actualizar</button>
+        <button type="button" class="btn btn-secondary" onclick="actulizar_producto();">
+        <i class="fas fa-arrow-left"></i> Actualizar </button>
+        <button type="button" class="btn btn-secondary" onclick="window.history.back();">
+        <i class="fas fa-arrow-left"></i> Atras </button>
 </form>
 <script src="<?php echo BASE_URL; ?>views/js/functions_product.js"></script>
 

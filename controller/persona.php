@@ -127,7 +127,7 @@ if ($tipo == "actualizar") {
           'mensaje' => 'Error, campos vacíos'
       );
   } else {
-      $arr_Persona = $objPersona->ActualizarPersona($id, $nro_identidad, $razon_social, $telefono, $correo,$departamento,$direccion,$rol);
+      $arr_Persona = $objPersona->Actualizarpersona($id, $nro_identidad, $razon_social, $telefono, $correo,$departamento,$direccion,$rol);
 
       if ($arr_Persona->p_id > 0) { 
           $arr_Respuesta = array(

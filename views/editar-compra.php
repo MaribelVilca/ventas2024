@@ -1,5 +1,5 @@
 
-<form action="" class="form-control" id="formRegistrarCom">
+<form action="" class="form-control" id="formActualizarCom">
         <div class?="form group">
 
 </div>
@@ -27,7 +27,10 @@
                         class="form-control" id="id_trabajador" name="id_trabajador"><br><br>
                         
         </div>
-        <button type="button" class="btn-success" onclick="Actualizarcompras();">Actualizar</button>
+        <button type="button" class="btn btn-secondary" onclick="Actualizarcompras();">
+        <i class="fas fa-arrow-left"></i> Actualizar </button>
+        <button type="button" class="btn btn-secondary" onclick="window.history.back();">
+        <i class="fas fa-arrow-left"></i> Atras </button>
 </form>
 <script src="<?php echo BASE_URL;?>views/js/functions_compras.js"></script>
     <script>listar_productos();</script>
