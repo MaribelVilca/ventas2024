@@ -54,7 +54,7 @@ async function registrar_producto(){
     //capturamos datos del formulario html//
     const datos = new FormData(frmRegistrar);
     //enviar datos hacia el controlador//
-    let respuesta = await fetch(base_url + 'controller/producto.php?tipo=registrar', {
+    let respuesta = await fetch(base_url + 'controller/producto.php?tipo=Registrar', {
         method: 'POST',
         mode: 'cors',
         cache: 'no-cache',

@@ -33,7 +33,7 @@ if ($tipo =="listar"){
 }
 
 
-if ($tipo == "registrar") {
+if ($tipo == "Registrar") {
    // print_r($_POST);
     //echo $_FILES['imagen']['name'];
 
