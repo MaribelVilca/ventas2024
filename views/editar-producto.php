@@ -51,7 +51,7 @@
         </select>
         </div>
 
-        <button type="button" class="btn-success" onclick="actualizar_producto()">Registrar</button>
+        <button type="button" class="btn-success" onclick="actualizar_producto()">Actualizar</button>
 </form>
 <script src="<?php echo BASE_URL; ?>views/js/functions_product.js"></script>
 

@@ -169,7 +169,35 @@ async function ver_producto(id){
              console.log("Oops, ocurrio un error" + e);
         }
     }
+
 }
+async function actualizar_producto() {
+    const datos = new FormData();
+
+    try {
+       
+        const datos = new FormData(frmActualizar);
+        
+        let respuesta = await fetch(base_url + 'controller/producto.php?tipo=actualizar', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: datos
+        });
+     
+        json = await respuesta.json();
+        if (json.status) {
+            swal("registro", json.mensaje, "success");
+        } else {
+            swal("registro", json.mensaje, "error");
+        }
+        console.log(json);
+
+    } catch (e) {
+        console.log("Oops, ocurrio un error" + e);
+    }
+}
+
 
 
  async function eliminar_producto(id) {

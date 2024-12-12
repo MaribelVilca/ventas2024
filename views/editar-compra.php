@@ -2,8 +2,8 @@
 <form action="" class="form-control" id="formRegistrarCom">
         <div class?="form group">
 
-
 </div>
+        <input type="hidden" name="id_compra" id="id_compra" value="">
         <div class?="form group">
                 <label for="id_producto">Id producto: </label>
                 <input type="text" required
@@ -27,7 +27,7 @@
                         class="form-control" id="id_trabajador" name="id_trabajador"><br><br>
                         
         </div>
-        <button type="button" class="btn-success" onclick="registrarcompras();">registrar</button>
+        <button type="button" class="btn-success" onclick="Actualizarcompras();">Actualizar</button>
 </form>
 <script src="<?php echo BASE_URL;?>views/js/functions_compras.js"></script>
     <script>listar_productos();</script>

@@ -63,6 +63,35 @@ if ($tipo =="listar"){
     }
     echo json_encode($arr_Respuesta);  
 }
+
+if ($tipo == "actualizar") {
+    if ($_POST) {
+    $id = $_POST['id_compra'];
+    $id_producto = $_POST['id_producto'];
+    $cantidad = $_POST['cantidad'];
+    $precio = $_POST['precio'];
+    $id_trabajador = $_POST['id_trabajador'];
+
+    if ($id_producto == "" || $cantidad == "" || $precio == "" || $id_trabajador == "") {
+        $arr_Respuesta = array(
+            'status' => false,
+            'mensaje' => 'Error, campos vacíos'
+        );
+    } else {
+        $arr_Compras = $objCompras->Actualizarcompras($id, $id_producto, $cantidad, $precio, $id_trabajador);
+
+        if ($arr_Compras->p_id > 0) { 
+            $arr_Respuesta = array( 'status' => true,'mensaje' => 'Actualizado Correctamente'
+            );
+        
+        } else {
+            $arr_Respuesta = array(  'status' => false,  'mensaje' => 'Error al Actualizar Compra'
+            );
+        }
+    }
+    echo json_encode($arr_Respuesta);
+}
+}
 if ($tipo == "ver") {
     // print_r($_POST);
    $id_compras = $_POST['id_compras'];

@@ -132,6 +132,31 @@ async function listar_trabajadores() {
         console.log("Opps ocurrio un error" + error);
     }
 }
+async function actualizarcompras() {
+    const datos = new FormData();
+    try {
+       
+        const datos = new FormData(formRegistrarCom);
+        let respuesta = await fetch(base_url + 'controller/Compra.php?tipo=actualizar', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: datos
+        }); 
+        json = await respuesta.json();
+        if (json.status) {
+            swal("registro", json.mensaje, "success");
+        } else {
+            swal("registro", json.mensaje, "error");
+        }
+        console.log(json);
+    } catch (e) {
+         console.log("Oops, ocurrio un error" + e);
+    }
+}
+
+
+
 async function fnt_eliminar(id) {
     const formdata = new FormData();
     formData.append('id_compra',id);

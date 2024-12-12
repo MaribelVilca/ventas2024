@@ -73,6 +73,13 @@ public function verPersona($id) {
     $sql = $sql->fetch_object();
     return $sql;
 }
+public function ActualizarPersona($id, $nro_identidad, $razon_social, $telefono, $correo,$departamento,$direccion,$rol) {
+    $sql = $this->conexion->query("CALL ActualizarPersona('{$id}',
+    '{$nro_identidad}','{$razon_social}','{$telefono}','{$correo}','{$departamento}','{$direccion}','{$rol}'
+    )");
+    $sql = $sql->fetch_object();
+    return $sql;
+}
 public function eliminar_persona( $id) {
     $sql = $this->conexion->query("CALL eliminarpersona('{$id}')");
     $sql = $sql->fetch_object();

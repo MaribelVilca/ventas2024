@@ -114,6 +114,31 @@ async function ver_persona(id) {
 }
 
 }
+
+async function ActualizarPersona() {
+    const datos = new FormData();
+    try {
+       
+        const datos = new FormData(formRegistrarper);
+       
+        let respuesta = await fetch(base_url + 'controller/persona.php?tipo=Actualizar', {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: datos
+        });
+  
+  json = await respuesta.json();
+  if (json.status) {
+      swal("registro", json.mensaje, "success");
+  } else {
+      swal("registro", json.mensaje, "error");
+  }
+  console.log(json);
+    } catch (e) {
+         console.log("Oops, ocurrio un error" + e);
+    }
+}
 async function fnt_eliminar(id) {
     const formdata = new FormData();
     formData.append('id_persona',id);

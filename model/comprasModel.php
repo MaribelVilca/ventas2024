@@ -42,6 +42,14 @@ class comprasModel {
     return $sql;
 
  }
+ public function actualizarcompras( $id, $id_producto, $cantidad, $precio,$id_trabajador) {
+       
+    $sql = $this->conexion->query("CALL actualizarcompras('{$id}',
+    '{$id_producto}','{$cantidad}','{$precio}','{$id_trabajador}'
+    )");
+    $sql = $sql->fetch_object();
+    return $sql;
+}
  public function eliminar_compras( $id) {
     $sql = $this->conexion->query("CALL eliminarcompras('{$id}')");
     $sql = $sql->fetch_object();
