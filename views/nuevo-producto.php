@@ -1,5 +1,5 @@
 FORMULARIO DE REGISTRO DE PRODUCTO
-<form action="" class="form-control" id="frmActualizar">
+<form action="" class="form-control" id="frmRegistrar">
         <div class?="form group">
                 <label for="codigo">Codigo: </label>
                 <input type="text" required

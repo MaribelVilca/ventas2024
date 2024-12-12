@@ -56,18 +56,9 @@
          </select>
         </div>
         
-        <div class?="form group">
-                <label for="estado">estado: </label>
-                <input type="text" required
-                        class="form-control" id="estado" name="estado"><br><br>
-        </div>
-        <div class?="form group">
-                <label for="fecha_reg">fecha de registro: </label>
-                <input type="date" required
-                        class="form-control" id="fecha_reg" name="fecha_reg"><br><br>
-        </div>
+        
 
-        <button type="button" class="btn btn-success" onclick="Registrar();">Registrar</button>
+        <button type="button" class="btn btn-success" onclick="RegistrarPersona();">Registrar</button>
 </form>
 
 

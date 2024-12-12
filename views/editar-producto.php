@@ -60,6 +60,7 @@
 
 <script >listar_categorias();</script>
 <script >listar_proveedor();</script>
+
 <script> 
     //http://localhost/ventas_2024/editar-producto/1
     const id_p=<?php $pagina=explode("/", $_GET['views']); echo $pagina['1'];?>;

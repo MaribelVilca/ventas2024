@@ -1,6 +1,6 @@
 <?php
 require_once "../librerias/conexion.php";
-class ProductoModel
+class productoModel
 {
     private $conexion;
     function __construct()

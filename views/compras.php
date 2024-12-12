@@ -16,5 +16,8 @@
      
      </tbody>
     </table>
+    <button type="button" class="btn btn-secondary" onclick="window.history.back();">
+        <i class="fas fa-arrow-left"></i> Regresar
+    </button>
 </div>
 <script src="<?php echo BASE_URL; ?>views/js/functions_compras.js"></script>

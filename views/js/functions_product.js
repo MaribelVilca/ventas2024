@@ -96,13 +96,13 @@ async function listar_categorias() {
     }
      console.log(respuesta);
     }catch (e) {
-        console.log("Error al cargar categorias" + e);
+        console.error("Error al cargar categorias" + e);
     }
 }
 
 async function listar_proveedor() {
     try{
-        let respuesta = await fetch(base_url +'controller/proveedor.php?tipo=listar');
+        let respuesta = await fetch(base_url +'controller/persona.php?tipo=listar');
         console.log(respuesta);
        json = await respuesta.json();
        if(json.status){
@@ -152,24 +152,6 @@ async function ver_producto(id){
     }catch (e) {
         console.log("oops ocurrio un error "+ e);
     }
-    async function actualizar_producto(){
-        const datos = new FormData();
-        try {
-        
-            const datos = new FormData(formActualizar);
-            let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=actualizar', {
-                method: 'POST',
-                mode: 'cors',
-                cache: 'no-cache',
-                body: datos
-            });
-    json = await respuesta.json();
-    console.log(json);
-        } catch (e) {
-             console.log("Oops, ocurrio un error" + e);
-        }
-    }
-
 }
 async function actualizar_producto() {
     const datos = new FormData();

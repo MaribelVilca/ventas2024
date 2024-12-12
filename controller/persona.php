@@ -41,18 +41,16 @@ if ($tipo == "Registrar") {
     $cod_postal = ['cod_postal'];
     $direccion = $_POST['direccion'];
     $rol = $_POST['rol'];
-    $estado = $_POST['estado'];
-    $fecha_reg = $_POST['fecha_reg'];
-
+    
     $secure_password =password_hash($nro_identidad,PASSWORD_DEFAULT);
 
-    if ($nro_identidad == "" || $razon_social == "" || $telefono == "" || $correo == "" || $departamento == "" || $provincia == "" || $distrito == "" || $cod_postal == "" || $direccion == ""|| $rol == ""
-    || $password== ""|| $estado == ""|| $fecha_reg == "") {
+    if ($nro_identidad == "" || $razon_social == "" || $telefono == "" || $correo == "" ||$departamento == "" || $provincia == "" || $distrito == "" || $cod_postal == "" ||
+    $direccion == "" || $rol == "" || $secure_password == "") {
         $arr_Respuesta = array('status' => true, 'mensaje' => 'Error campos vacios');
 
     } else {
-        $arrPersona = $objPersona->registrarPersona($nro_identidad, $razon_social, $telefo, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $secure_password);
-        if ($objPersona->id > 0) {
+        $arrPersona = $objpersona->RegistrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $secure_password);
+        if ($objpersona->$id > 0) {
             $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro Exitoso');
         //cargar archivos
         

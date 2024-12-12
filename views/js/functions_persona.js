@@ -55,18 +55,16 @@ async function RegistrarPersona(){
     let cod_postal = document.getElementById('cod_postal').value;
     let direccion = document.getElementById('direccion').value;
     let rol = document.getElementById('rol').value;
-    let estado = document.getElementById('estado').value;
-    let fecha_reg = document.getElementById('fecha_reg').value;
-  
-    if (!nro_identidad || !razon_social || !telefono || !correo || !departamento || !provincia || !distrito || !cod_postal || !direccion || !rol || !estado || !fecha_reg) {
+    
+    if (!nro_identidad || !razon_social || !telefono || !correo || !departamento || !provincia || !distrito || !cod_postal || !direccion || !rol ) {
         alert("Error, campos vacíos");
         return;
     }
 
     try {
-        const datos = new FormData(formRegistrarper);
+        const datos = new FormData(frmRegistrar);
 
-        let respuesta = await fetch(base_url + 'controller/persona.php?tipo=Registrarper', {
+        let respuesta = await fetch(base_url + 'controller/persona.php?tipo=Registrar', {
             method: 'POST',
             mode: 'cors',
             cache: 'no-cache',
@@ -116,11 +114,8 @@ async function ver_persona(id) {
 }
 
 async function Actualizarpersona() {
-    const datos = new FormData();
     try {
-       
         const datos = new FormData(formRegistrarper);
-       
         let respuesta = await fetch(base_url + 'controller/persona.php?tipo=Actualizar', {
             method: 'POST',
             mode: 'cors',

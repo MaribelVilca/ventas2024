@@ -1,5 +1,5 @@
 <?php 
-require_once "../library/conexion.php"; 
+require_once "../librerias/conexion.php"; 
 class comprasModel {
     private $conexion;
     function __construct() {

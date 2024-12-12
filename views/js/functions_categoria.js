@@ -1,6 +1,6 @@
 async function listar_categorias() {
     try{
-      let respuesta = await fetch(base_url+'controller/categoria.php?tipo=listar');
+      let respuesta = await fetch(base_url+'controller/Categoria.php?tipo=listar');
       json = await respuesta.json();
       if (json.status){
          let datos = json.contenido;
@@ -23,8 +23,8 @@ async function listar_categorias() {
               });
           };
         console.log(json);
-      } catch (error) {
-        console.error("Error al listar  categorias" + error);
+      } catch (e) {
+        console.log("Error al listar  categorias" + e);
       }
 }
 if (document.querySelector('#tbl_categoria')) {
@@ -58,7 +58,7 @@ async function RegistrarCategoria(){
         console.log(json);
 
     } catch (e) {
-        console.log("Oops, ocurrio un error" + e);
+        console.error("Oops, ocurrio un error" + e);
     }
 }
 
@@ -88,7 +88,7 @@ async function RegistrarCategoria(){
         }
     }
     async function ActulizarCategoria(){
-        const datos = new FormData();
+        
         try {
             const datos = new FormData(formActualizarCategoria);
             let respuesta = await fetch(base_url+'controller/Categoria.php?tipo=Actualizar',{
@@ -99,8 +99,8 @@ async function RegistrarCategoria(){
             });
            json = await respuesta.json();
         console.log(json);
-        }catch (e) {
-            console.log("Opps ocurrio un error" + e);
+        }catch (error) {
+            console.error("Opps ocurrio un error" + error);
         }
     }
     async function fnt_eliminar(id) {

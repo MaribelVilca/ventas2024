@@ -129,7 +129,7 @@ async function listar_trabajadores() {
         }
         console.log(json);
     } catch (error) {
-        console.log("Opps ocurrio un error" + error);
+        console.error("Opps ocurrio un error" + error);
     }
 }
 async function Actualizarcompras() {
