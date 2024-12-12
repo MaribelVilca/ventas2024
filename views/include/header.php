@@ -19,7 +19,7 @@ const base_url ='<?php echo BASE_URL;?>' </script>
   <nav class="navbar bg-body-tertiary">
     <div class="container-fluid row" style="background-color: #dbdde0;" data-bs-theme="dark">
       <a  href="#" class="col-2">
-        <img src="./views/plantilla/imagenes/IMAGENES.PNG.png" alt="Logo" width="60" height="60" class="">
+        <img src="./views/plantilla/imagenes/IMAGEN.PNG.png" alt="Logo" width="60" height="60" class="">
       </a>
         <form class="d-flex col-6" role="search ">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

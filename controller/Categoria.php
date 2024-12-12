@@ -34,8 +34,8 @@ if ($tipo =="registrar"){
             'mensaje'=> 'Error, campos vacios'
         );
     }else{
-        $arr_Categorias = $objCategoria -> registrar_categoria($nombre,$detalle);
-        if ($arr_Categorias->id >0){
+        $arr_Categoria = $objCategoria -> RegistrarCategoria($nombre,$detalle);
+        if ($arr_Categoria->id > 0){
             $arr_Respuesta = array('status' =>true,
             'mensaje' => 'Registro exitoso'
         );
@@ -72,7 +72,7 @@ if ($tipo =="registrar"){
             $arr_Respuesta = array(
                 'status' => false,'mensaje' => 'Error, campos vacíos');
         }else{
-           $arr_Categoria = $objCategoria-> actualizarCategoria($id, $nombre, $detalle);
+           $arr_Categoria = $objCategoria-> ActulizarCategoria($id, $nombre, $detalle);
            if ($arrCategoria-> p_id > 0) {
             $arr_Respuesta = array('status' => true,'mensaje' => 'Actualizado Correctamente');
            }else{
@@ -82,6 +82,16 @@ if ($tipo =="registrar"){
            }
            echo json_encode($arr_Respuesta);
         }
+        if ($tipo=="eliminar") {
+          $id_categoria = $_POST['id_categoria'];
+          $arrcategoria = $odjcategoria->eliminar_categoria($id_categoria);
+          if (empty($arr_Respuesta)) {
+              $response = array('status' => false);
+          }else {
+              $response = array('status' => true);
+          }
+          echo json_decode($arr_Respuesta);
+      }
 
   }
 

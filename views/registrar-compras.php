@@ -24,6 +24,13 @@
                         class="form-control" id="id_trabajador" name="id_trabajador"><br><br>
                         
         </div>
+<<<<<<< HEAD
         <button type="button" class="btn-success" onclick="RegistrarCom();">Registrar</button>
+=======
+        <button type="button" class="btn btn-secondary" onclick="Registrarcompras();">
+        <i class="fas fa-arrow-left"></i> Registrar </button>
+        <button type="button" class="btn btn-secondary" onclick="window.history.back();">
+        <i class="fas fa-arrow-left"></i> Regresar </button>
+>>>>>>> 2963f3113209a1ce20c8a52b25fa9b0751f9f22c
 </form>
 <script src="<?php echo BASE_URL;?>views/js/functions_compras.js"></script>

@@ -14,13 +14,13 @@ if ($tipo == 'registrar') {
         $id_producto = $_POST['id_producto'];
         $cantidad = $_POST['cantidad'];
         $precio = $_POST['precio'];
-        $trabajador = $_POST['trabajador'];
-        if ($id_producto == "" || $cantidad == "" || $precio == "" || $trabajador == "") {
+        $trabajador = $_POST['id_trabajador'];
+        if ($id_producto == "" || $cantidad == "" || $precio == "" || $id_trabajador == "") {
         
             $arr_Respuesta = array('status'=>false,'mensaje'=>'Error, campos vacíos');
         }else{
            
-            $arrProducto= $objCompras->registrarcompras(
+            $arrProducto= $objCompras->Registrarcompras(
                 $id_producto, $cantidad, $precio, $trabajador);
 
             if ($arrProducto->id>0) {
@@ -75,7 +75,16 @@ if ($tipo == "ver") {
    }
    echo json_encode($response);
    }
-   
+   if ($tipo=="eliminar") {
+    $id_compras= $_POST['id_compras'];
+    $arrcompras = $odjcompras->eliminar_compras($id_compras);
+    if (empty($arr_Respuesta)) {
+        $response = array('status' => false);
+    }else {
+        $response = array('status' => true);
+    }
+    echo json_decode($arr_Respuesta);
+}
 
 
 ?>

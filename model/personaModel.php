@@ -73,6 +73,10 @@ public function verPersona($id) {
     $sql = $sql->fetch_object();
     return $sql;
 }
-
+public function eliminar_persona( $id) {
+    $sql = $this->conexion->query("CALL eliminarpersona('{$id}')");
+    $sql = $sql->fetch_object();
+    return $sql;
+}
 }
 ?>

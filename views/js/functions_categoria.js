@@ -32,7 +32,7 @@ if (document.querySelector('#tbl_categoria')) {
 }
 
 async function RegistrarCategoria(){
-    let nombre= document.getElementById('#nombre').value;
+    let nombre= document.querySelector('#nombre').value;
     let detalle= document.querySelector('#detalle').value;
     if(nombre==""|| detalle ==""){
         alert("error,campos vacios");
@@ -41,28 +41,27 @@ async function RegistrarCategoria(){
     }
     try{
        
-        const datos = new FormData(frmRegistrarCategoria);
+        const datos = new FormData(frmRegistrar);
      
-        let respuesta = await fetch(base_url + 'controller/categoria.php?tipo=Registrar', {
+        let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=Registrar', {
             method: 'POST',
             mode: 'cors',
             cache: 'no-cache',
             body: datos
         });
         json = await respuesta.json();
-        if(json.status){
-        swal("Registro", json.mensaje,"success");
-        }else{
-            swal("Registro", json.mensaje,"error");   
+        if (json.status) {
+            swal("registro", json.mensaje, "success");
+        } else {
+            swal("registro", json.mensaje, "error");
         }
-    
         console.log(json);
-       } catch (e){
-        console.log("Oops, ocurrio un error:" + e);
-    
-        
-       }
+
+    } catch (e) {
+        console.log("Oops, ocurrio un error" + e);
     }
+}
+
     async function ver_categoria(id){
         const formData = new FormData();
         formData.append('id_categoria', id);
@@ -88,11 +87,11 @@ async function RegistrarCategoria(){
             console.log("Opps ocurrio un error" + e);
         }
     }
-    async function actualizarcategoria(){
+    async function ActulizarCategoria(){
         const datos = new FormData();
         try {
             const datos = new FormData(formActualizarCategoria);
-            let respuesta = await fetch(base_url+'controller/Categoria.php?tipo=actualizar',{
+            let respuesta = await fetch(base_url+'controller/Categoria.php?tipo=Actualizar',{
                 method: 'POST',
                 mode: 'cors',
                 cache:'no-cache',
@@ -104,3 +103,28 @@ async function RegistrarCategoria(){
             console.log("Opps ocurrio un error" + e);
         }
     }
+    async function fnt_eliminar(id) {
+        const formdata = new FormData();
+        formData.append('id_categoria',id);
+        try {
+            let respuesta = await fetch
+            (base_url + 'controller/producto.php?tipo=eliminar',{
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no_cache',
+                body: formdata
+            });
+            json = await respuesta.json();
+            if (json.status){
+                swal("Eliminar","Eliminado correctamente","success");
+                document.querySelector('#fila'+ id).remove();
+            }else{
+                swal ('Eliminar','Error al eliminar','warning');
+            }
+    
+        }catch (e) {
+            console.log("ocurrio error"+ e);
+    
+        }
+        
+     }
